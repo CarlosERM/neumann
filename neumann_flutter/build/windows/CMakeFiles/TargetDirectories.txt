@@ -1,0 +1,10 @@
+C:/Users/carlo/OneDrive/Área de Trabalho/Ciência da Computação/Matérias/Projeto de Software/neumann/neumann_flutter/build/windows/CMakeFiles/INSTALL.dir
+C:/Users/carlo/OneDrive/Área de Trabalho/Ciência da Computação/Matérias/Projeto de Software/neumann/neumann_flutter/build/windows/CMakeFiles/ALL_BUILD.dir
+C:/Users/carlo/OneDrive/Área de Trabalho/Ciência da Computação/Matérias/Projeto de Software/neumann/neumann_flutter/build/windows/CMakeFiles/ZERO_CHECK.dir
+C:/Users/carlo/OneDrive/Área de Trabalho/Ciência da Computação/Matérias/Projeto de Software/neumann/neumann_flutter/build/windows/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+C:/Users/carlo/OneDrive/Área de Trabalho/Ciência da Computação/Matérias/Projeto de Software/neumann/neumann_flutter/build/windows/flutter/CMakeFiles/flutter_wrapper_app.dir
+C:/Users/carlo/OneDrive/Área de Trabalho/Ciência da Computação/Matérias/Projeto de Software/neumann/neumann_flutter/build/windows/flutter/CMakeFiles/flutter_assemble.dir
+C:/Users/carlo/OneDrive/Área de Trabalho/Ciência da Computação/Matérias/Projeto de Software/neumann/neumann_flutter/build/windows/flutter/CMakeFiles/INSTALL.dir
+C:/Users/carlo/OneDrive/Área de Trabalho/Ciência da Computação/Matérias/Projeto de Software/neumann/neumann_flutter/build/windows/runner/CMakeFiles/neumann_flutter.dir
+C:/Users/carlo/OneDrive/Área de Trabalho/Ciência da Computação/Matérias/Projeto de Software/neumann/neumann_flutter/build/windows/runner/CMakeFiles/INSTALL.dir
+C:/Users/carlo/OneDrive/Área de Trabalho/Ciência da Computação/Matérias/Projeto de Software/neumann/neumann_flutter/build/windows/runner/CMakeFiles/ALL_BUILD.dir
