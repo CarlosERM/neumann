@@ -12,9 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Neumann',
-        theme: theme,
-        home: const Home(),
-        debugShowCheckedModeBanner: false);
+      title: 'Neumann',
+      theme: theme,
+      home: const Home(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
