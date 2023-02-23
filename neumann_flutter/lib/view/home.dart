@@ -6,7 +6,9 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text("Neumann"),
+      child: Image(
+        image: AssetImage('assets/icons/neumann_logo_horizontal.jpg'),
+      ),
     );
   }
 }
