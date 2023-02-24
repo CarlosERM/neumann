@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import '/view/home.dart';
 import 'util/theme.dart';
+// import 'package:get/get.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.immersive,
+  );
   runApp(const MyApp());
 }
 
