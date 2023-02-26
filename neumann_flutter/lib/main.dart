@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '/view/home.dart';
 import 'util/theme.dart';
-// import 'package:get/get.dart';
+import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Neumann',
       theme: theme,
       home: const Home(),

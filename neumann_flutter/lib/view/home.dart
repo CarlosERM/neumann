@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neumann_flutter/view/components/input.dart';
+import 'package:neumann_flutter/view/components/form/login_form.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -10,19 +10,19 @@ class Home extends StatelessWidget {
       color: Theme.of(context).colorScheme.background,
       child: Padding(
         padding: const EdgeInsets.all(30),
-        child: Column(
+        child: Stack(
           children: [
-            const Image(
-              image: AssetImage('assets/icons/neumann_logo_horizontal.jpg'),
-            ),
-            Form(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Input(labelText: "Email", hintText: "john.doe@gmail.com"),
-                  Input(labelText: "Senha", hintText: "Digite sua senha"),
-                ],
+            const Align(
+              alignment: Alignment.topCenter,
+              child: Image(
+                image: AssetImage('assets/icons/neumann_logo_horizontal.jpg'),
               ),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                LoginForm(),
+              ],
             ),
           ],
         ),
