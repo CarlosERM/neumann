@@ -26,8 +26,35 @@ ThemeData theme = ThemeData(
     titleMedium: TextStyle(),
     titleSmall: TextStyle(),
     bodyLarge: TextStyle(),
-    bodyMedium: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-    bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-    labelSmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+    bodyMedium: TextStyle(
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+        decoration: TextDecoration.underline),
+    bodySmall: TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+    ),
+    labelSmall: TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+    ),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: const Color.fromRGBO(
+        0,
+        0,
+        0,
+        1.000,
+      ),
+      textStyle: const TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+      ),
+      minimumSize: const Size(
+        double.infinity,
+        48.0,
+      ),
+    ),
   ),
 );

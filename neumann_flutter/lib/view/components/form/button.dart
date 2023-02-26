@@ -8,6 +8,7 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      style: Theme.of(context).elevatedButtonTheme.style,
       onPressed: () => null,
       child: const Text("Login"),
     );
