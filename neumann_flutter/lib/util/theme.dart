@@ -27,9 +27,10 @@ ThemeData theme = ThemeData(
     titleSmall: TextStyle(),
     bodyLarge: TextStyle(),
     bodyMedium: TextStyle(
-        fontSize: 12,
-        fontWeight: FontWeight.w500,
-        decoration: TextDecoration.underline),
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+      decoration: TextDecoration.underline,
+    ),
     bodySmall: TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w400,

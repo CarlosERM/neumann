@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neumann_flutter/view/components/form/button.dart';
-import 'package:neumann_flutter/view/components/form/email_input.dart';
-import 'package:neumann_flutter/view/components/form/password_input.dart';
+import 'package:neumann_flutter/view/components/form/input_password/password_input.dart';
+import 'input_email/email_input.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
 
   @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
+  @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -17,12 +24,17 @@ class LoginForm extends StatelessWidget {
           const SizedBox(height: 18),
           PasswordInput(),
           const SizedBox(height: 16),
-          Text(
-            "Esqueceu a senha",
-            style: Theme.of(context).textTheme.bodyMedium,
+          GestureDetector(
+            child: Text(
+              "Esqueceu a senha?",
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            onTap: () {
+              Get.toNamed("forgot_password");
+            },
           ),
           const SizedBox(height: 30),
-          const Button(),
+          Button(formKey: _formKey),
         ],
       ),
     );
