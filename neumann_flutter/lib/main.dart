@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neumann_flutter/view/forgot_password.dart';
 import '/view/home.dart';
+import '/view/register.dart';
 import 'util/theme.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       getPages: [
         GetPage(name: '/', page: () => Home()),
-        GetPage(name: '/forgot_password', page: () => ForgotPassword()),
+        GetPage(name: '/forgot_password', page: () => const ForgotPassword()),
+        GetPage(name: '/register', page: () => const Register()),
       ],
     );
   }

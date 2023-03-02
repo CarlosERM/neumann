@@ -24,6 +24,7 @@ class PasswordInput extends StatelessWidget {
             decoration: InputDecoration(
               suffixIconColor: const Color.fromRGBO(176, 176, 176, 1.000),
               suffixIcon: InkWell(
+                splashColor: Theme.of(context).colorScheme.secondary,
                 child: (ip.estado.value
                     ? const Icon(
                         Icons.visibility_off,

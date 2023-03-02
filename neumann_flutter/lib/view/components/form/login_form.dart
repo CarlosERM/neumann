@@ -24,13 +24,13 @@ class _LoginFormState extends State<LoginForm> {
           const SizedBox(height: 18),
           PasswordInput(),
           const SizedBox(height: 16),
-          GestureDetector(
+          InkWell(
             child: Text(
               "Esqueceu a senha?",
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             onTap: () {
-              Get.toNamed("forgot_password");
+              // Get.toNamed("forgot_password");
             },
           ),
           const SizedBox(height: 30),

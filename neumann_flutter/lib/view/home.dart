@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:neumann_flutter/view/components/form/login_form.dart';
 
 class Home extends StatelessWidget {
@@ -19,19 +20,33 @@ class Home extends StatelessWidget {
               image: AssetImage('assets/icons/neumann_logo_horizontal.jpg'),
             ),
             const LoginForm(),
-            Text.rich(
-              style: Theme.of(context).textTheme.labelSmall,
-              textAlign: TextAlign.center,
-              TextSpan(
-                text: "Não possui uma conta?",
-                children: [
-                  TextSpan(
-                    style: Theme.of(context).textTheme.bodyMedium,
-                    text: "\nCadastre-se",
-                  )
-                ],
+            Column(children: [
+              Text("Não possui uma conta?",
+                  style: Theme.of(context).textTheme.labelSmall),
+              InkWell(
+                child: Text(
+                  "Cadastre-se",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                onTap: () {
+                  Get.toNamed("register");
+                },
               ),
-            ),
+            ])
+            // Text.rich(
+            //   style: Theme.of(context).textTheme.labelSmall,
+            //   textAlign: TextAlign.center,
+            //   TextSpan(
+            //     text: "Não possui uma conta?",
+            //     children: [
+            //       InkWell(),
+            //       TextSpan(
+            //         style: Theme.of(context).textTheme.bodyMedium,
+            //         text: "\nCadastre-se",
+            //       )
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),
