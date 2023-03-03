@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neumann_flutter/view/components/form/button.dart';
-import 'package:neumann_flutter/view/components/form/input_password/password_input.dart';
-import 'input_email/email_input.dart';
+import 'package:neumann_flutter/view/components/form/password_input.dart';
+import 'email_input.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});

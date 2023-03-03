@@ -3,7 +3,6 @@ import 'package:neumann_flutter/view/components/form/registration_form.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:neumann_flutter/view/components/form/button.dart';
-import 'package:neumann_flutter/view/components/form/input_name/input_name.dart';
-import 'package:neumann_flutter/view/components/form/input_password/password_input.dart';
-import 'input_email/email_input.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:neumann_flutter/view/components/form/input_name.dart';
+import 'package:neumann_flutter/view/components/form/password_input.dart';
+import 'package:neumann_flutter/view/components/form/profile_picture.dart';
+import '../../../controller/image_controller.dart';
+import 'email_input.dart';
 
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({super.key});
@@ -39,22 +41,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
               ),
             ),
             const SizedBox(height: 40),
-            GestureDetector(
-              child: CircleAvatar(
-                radius: 65,
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                child: CircleAvatar(
-                  radius: 64,
-                  backgroundColor: Theme.of(context).colorScheme.secondary,
-                  child: const Icon(
-                    Icons.camera_alt,
-                  ),
-                ),
-              ),
-              onTap: () {
-                print("Pitoca");
-              },
-            ),
+            ProfilePicture(),
             const SizedBox(height: 40),
             InputName(),
             const SizedBox(height: 16),

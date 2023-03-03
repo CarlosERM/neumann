@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:neumann_flutter/view/components/form/input_name/input_name_controller.dart';
+import 'package:get/get.dart';
 
-class InputName extends StatelessWidget {
-  InputName({super.key});
+import '../../../controller/input_email_controller.dart';
 
-  final InputNameController inc = InputNameController();
+class EmailInput extends StatelessWidget {
+  EmailInput({super.key});
+  final InputEmailController ie = Get.put(InputEmailController());
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +13,15 @@ class InputName extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Nome completo",
+          "Email",
           style: Theme.of(context).textTheme.labelSmall,
         ),
         const SizedBox(height: 5.0),
         TextFormField(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           cursorColor: Theme.of(context).colorScheme.primary,
           decoration: InputDecoration(
-            hintText: "John Doe",
+            hintText: "john.doe@gmail.com",
             hintStyle: Theme.of(context).textTheme.bodySmall,
             focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(
@@ -46,9 +48,9 @@ class InputName extends StatelessWidget {
               ),
             ),
           ),
-          validator: (name) {
-            if (name == null || name.isEmpty || !inc.validateName(name)) {
-              return 'O nome é inválido.';
+          validator: (email) {
+            if (email == null || email.isEmpty || !ie.validateEmail(email)) {
+              return 'O email é inválido.';
             } else {
               return null;
             }
@@ -56,6 +58,5 @@ class InputName extends StatelessWidget {
         ),
       ],
     );
-    ;
   }
 }

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'input_password_controller.dart';
+import '../../../controller/input_password_controller.dart';
 
 class PasswordInput extends StatelessWidget {
   PasswordInput({super.key});
 
-  final InputPasswordController ip = InputPasswordController();
-
+  final InputPasswordController ip = Get.put(InputPasswordController());
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,6 +18,7 @@ class PasswordInput extends StatelessWidget {
         const SizedBox(height: 5.0),
         Obx(
           () => TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             cursorColor: Theme.of(context).colorScheme.primary,
             obscureText: ip.estado.value,
             decoration: InputDecoration(
