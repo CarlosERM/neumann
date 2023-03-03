@@ -9,13 +9,15 @@ class Register extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.secondary,
       appBar: AppBar(
-        leading:
-            Icon(Icons.close, color: Theme.of(context).colorScheme.primary),
+        leading: Icon(
+          Icons.close,
+          color: Theme.of(context).colorScheme.primary,
+        ),
         backgroundColor: Theme.of(context).colorScheme.secondary,
         elevation: 0.0,
       ),
       body: const Padding(
-        padding: EdgeInsets.all(30.0),
+        padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
         child: Center(
           child: RegistrationForm(),
         ),

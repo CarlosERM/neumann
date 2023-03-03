@@ -16,7 +16,11 @@ ThemeData theme = ThemeData(
     onSurface: Color.fromRGBO(0, 0, 0, 1.000),
   ),
   textTheme: const TextTheme(
-    displayLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.w500),
+    displayLarge: TextStyle(
+      fontSize: 32,
+      fontWeight: FontWeight.w500,
+      color: Color.fromRGBO(0, 0, 0, 1.000),
+    ),
     displayMedium: TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
     displaySmall: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
     headlineLarge: TextStyle(),
@@ -25,7 +29,10 @@ ThemeData theme = ThemeData(
     titleLarge: TextStyle(),
     titleMedium: TextStyle(),
     titleSmall: TextStyle(),
-    bodyLarge: TextStyle(),
+    bodyLarge: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+    ),
     bodyMedium: TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w500,

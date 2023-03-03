@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
-  const Button({super.key, required this.formKey});
+  const Button({super.key, required this.formKey, required this.name});
   final GlobalKey<FormState> formKey;
+  final String name;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -10,7 +12,7 @@ class Button extends StatelessWidget {
       onPressed: () {
         if (formKey.currentState!.validate()) {}
       },
-      child: const Text("Login"),
+      child: Text(name),
     );
   }
 }
