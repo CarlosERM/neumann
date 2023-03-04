@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: '/',
-          page: () => const Home(),
+          page: () => Home(),
         ),
         GetPage(
           name: '/forgot_password',

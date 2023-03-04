@@ -6,7 +6,9 @@ import '../../../controller/image_controller.dart';
 
 class ProfilePicture extends StatelessWidget {
   ProfilePicture({super.key});
-  final ImageController ic = Get.put(ImageController());
+  final ImageController ic = Get.put(
+    ImageController(),
+  );
 
   @override
   Widget build(BuildContext context) {

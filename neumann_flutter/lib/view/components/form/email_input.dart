@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../controller/input_email_controller.dart';
+import 'package:neumann_flutter/controller/email_input_controller.dart';
 
 class EmailInput extends StatelessWidget {
   EmailInput({super.key});
-  final InputEmailController ie = Get.put(InputEmailController());
+  final EmailInputController ie = Get.put(
+    EmailInputController(),
+  );
 
   @override
   Widget build(BuildContext context) {

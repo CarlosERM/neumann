@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../controller/input_password_controller.dart';
+import '../../../controller/password_input_controller.dart';
 
 class PasswordInput extends StatelessWidget {
-  PasswordInput({super.key});
+  const PasswordInput({
+    super.key,
+    required this.ip,
+  });
+  final PasswordInputController ip;
 
-  final InputPasswordController ip = Get.put(InputPasswordController());
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -59,10 +62,10 @@ class PasswordInput extends StatelessWidget {
                 ),
               ),
             ),
-            validator: (senha) {
-              if (senha == null ||
-                  senha.isEmpty ||
-                  !ip.validatePassword(senha)) {
+            validator: (password) {
+              if (password == null ||
+                  password.isEmpty ||
+                  !ip.validatePassword(password)) {
                 return 'A senha é inválida.';
               } else {
                 return null;

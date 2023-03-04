@@ -33,20 +33,6 @@ class Home extends StatelessWidget {
                 },
               ),
             ])
-            // Text.rich(
-            //   style: Theme.of(context).textTheme.labelSmall,
-            //   textAlign: TextAlign.center,
-            //   TextSpan(
-            //     text: "Não possui uma conta?",
-            //     children: [
-            //       InkWell(),
-            //       TextSpan(
-            //         style: Theme.of(context).textTheme.bodyMedium,
-            //         text: "\nCadastre-se",
-            //       )
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),

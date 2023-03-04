@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:neumann_flutter/controller/input_name_controller.dart';
+import 'package:neumann_flutter/controller/name_input_controller.dart';
 
 class InputName extends StatelessWidget {
   InputName({super.key});
 
-  final InputNameController inc = Get.put(InputNameController());
+  final NameInputController inc = Get.put(
+    NameInputController(),
+  );
 
   @override
   Widget build(BuildContext context) {

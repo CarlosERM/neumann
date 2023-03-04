@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class InputPasswordController extends GetxController {
+class PasswordInputController extends GetxController {
   final estado = true.obs;
 
   bool validatePassword(String password) {

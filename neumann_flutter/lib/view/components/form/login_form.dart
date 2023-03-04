@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:neumann_flutter/view/components/form/button.dart';
 import 'package:neumann_flutter/view/components/form/password_input.dart';
+import '../../../controller/password_input_controller.dart';
 import 'email_input.dart';
 
 class LoginForm extends StatefulWidget {
@@ -13,6 +15,13 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
+
+  final PasswordInputController ip = Get.put(
+    PasswordInputController(),
+    tag: "password_input_controller",
+  );
+
+  final TextEditingController tec = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -23,7 +32,9 @@ class _LoginFormState extends State<LoginForm> {
           children: [
             EmailInput(),
             const SizedBox(height: 18),
-            PasswordInput(),
+            PasswordInput(
+              ip: ip,
+            ),
             const SizedBox(height: 16),
             InkWell(
               child: Text(
@@ -31,7 +42,7 @@ class _LoginFormState extends State<LoginForm> {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               onTap: () {
-                // Get.toNamed("forgot_password");
+                Get.toNamed("forgot_password");
               },
             ),
             const SizedBox(height: 30),
