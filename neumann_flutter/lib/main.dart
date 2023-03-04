@@ -37,6 +37,10 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/register',
           page: () => const Register(),
+          transition: Transition.downToUp,
+          transitionDuration: Duration(
+            milliseconds: 400,
+          ),
         ),
       ],
     );
