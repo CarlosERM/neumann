@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neumann_flutter/view/components/form/button.dart';
-import 'package:neumann_flutter/view/components/form/input_name.dart';
+import 'package:neumann_flutter/view/components/form/name_input.dart';
 import 'package:neumann_flutter/view/components/form/password_input.dart';
 import 'package:neumann_flutter/view/components/form/profile_picture.dart';
 import '../../../controller/image_controller.dart';
@@ -50,7 +50,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
           const SizedBox(height: 40),
           ProfilePicture(),
           const SizedBox(height: 40),
-          InputName(),
+          NameInput(),
           const SizedBox(height: 16),
           EmailInput(),
           const SizedBox(height: 16),
@@ -125,7 +125,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Senha",
+                "Confirme sua senha",
                 style: Theme.of(context).textTheme.labelSmall,
               ),
               const SizedBox(height: 5.0),

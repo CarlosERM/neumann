@@ -1,10 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:neumann_flutter/view/forgot_password.dart';
-import '/view/home.dart';
-import '/view/register.dart';
-import 'util/theme.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
+import './view/forgot_password.dart';
+import './view/home.dart';
+import './view/login.dart';
+import './view/register.dart';
+import 'util/theme.dart';
+import 'util/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,25 +24,29 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Neumann',
       theme: theme,
-      home: const Home(),
+      home: const Login(),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: Routes.login,
       getPages: [
         GetPage(
-          name: '/',
-          page: () => Home(),
+          name: Routes.login,
+          page: () => const Login(),
         ),
         GetPage(
-          name: '/forgot_password',
-          page: () => const ForgotPassword(),
+          name: Routes.forgotPassword,
+          page: () => ForgotPassword(),
         ),
         GetPage(
-          name: '/register',
+          name: Routes.register,
           page: () => const Register(),
           transition: Transition.downToUp,
-          transitionDuration: Duration(
-            milliseconds: 400,
+          transitionDuration: const Duration(
+            milliseconds: 300,
           ),
+        ),
+        GetPage(
+          name: Routes.home,
+          page: () => Home(),
         ),
       ],
     );

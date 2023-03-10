@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:neumann_flutter/util/routes.dart';
 import 'package:neumann_flutter/view/components/form/button.dart';
 import 'package:neumann_flutter/view/components/form/password_input.dart';
 import '../../../controller/password_input_controller.dart';
@@ -46,7 +47,11 @@ class _LoginFormState extends State<LoginForm> {
               },
             ),
             const SizedBox(height: 30),
-            Button(formKey: _formKey, name: "Login"),
+            Button(
+              formKey: _formKey,
+              name: "Login",
+              route: Routes.home,
+            ),
           ],
         ),
       ),

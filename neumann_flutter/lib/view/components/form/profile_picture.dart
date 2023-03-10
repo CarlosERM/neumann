@@ -17,12 +17,12 @@ class ProfilePicture extends StatelessWidget {
         builder: (_) => CircleAvatar(
           radius: 64,
           backgroundColor: const Color.fromRGBO(240, 240, 240, 1),
-          backgroundImage: ic.imageFile != null
+          backgroundImage: _.imageFile != null
               ? Image.file(
                   File(_.imageFile!.path),
                 ).image
               : null,
-          child: ic.imageFile != null
+          child: _.imageFile != null
               ? null
               : const Icon(
                   Icons.camera_alt,
