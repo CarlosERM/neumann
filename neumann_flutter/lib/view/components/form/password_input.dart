@@ -3,11 +3,10 @@ import 'package:get/get.dart';
 import '../../../controller/password_input_controller.dart';
 
 class PasswordInput extends StatelessWidget {
-  const PasswordInput({
+  PasswordInput({
     super.key,
-    required this.ip,
   });
-  final PasswordInputController ip;
+  final PasswordInputController ip = Get.put(PasswordInputController());
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +18,23 @@ class PasswordInput extends StatelessWidget {
           style: Theme.of(context).textTheme.labelSmall,
         ),
         const SizedBox(height: 5.0),
-        Obx(
-          () => TextFormField(
+        ObxValue(
+          (data) => TextFormField(
             autovalidateMode: AutovalidateMode.onUserInteraction,
             cursorColor: Theme.of(context).colorScheme.primary,
-            obscureText: ip.estado.value,
+            obscureText: data.value,
             decoration: InputDecoration(
               suffixIconColor: const Color.fromRGBO(176, 176, 176, 1.000),
               suffixIcon: InkWell(
                 splashColor: Theme.of(context).colorScheme.secondary,
-                child: (ip.estado.value
+                child: (data.value
                     ? const Icon(
                         Icons.visibility_off,
                       )
                     : const Icon(
                         Icons.visibility,
                       )),
-                onTap: () => ip.estado.toggle(),
+                onTap: () => data.value = data.value = !data.value,
               ),
               hintText: "Digite a sua senha",
               hintStyle: Theme.of(context).textTheme.bodySmall,
@@ -72,6 +71,7 @@ class PasswordInput extends StatelessWidget {
               }
             },
           ),
+          true.obs,
         ),
       ],
     );

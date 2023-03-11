@@ -17,11 +17,6 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
 
-  final PasswordInputController ip = Get.put(
-    PasswordInputController(),
-    tag: "password_input_controller",
-  );
-
   final TextEditingController tec = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -33,9 +28,7 @@ class _LoginFormState extends State<LoginForm> {
           children: [
             EmailInput(),
             const SizedBox(height: 18),
-            PasswordInput(
-              ip: ip,
-            ),
+            PasswordInput(),
             const SizedBox(height: 16),
             InkWell(
               child: Text(
