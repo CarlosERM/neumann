@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:neumann_flutter/controller/publication_controller.dart';
 
 class Publication extends StatelessWidget {
   const Publication({super.key});
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      splashColor: Colors.black,
       leading: const CircleAvatar(),
       title: const Text.rich(
         TextSpan(
@@ -37,14 +37,15 @@ class Publication extends StatelessWidget {
       ),
       subtitle: Column(
         children: [
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           const Text(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-                decoration: TextDecoration.none,
-              )),
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              decoration: TextDecoration.none,
+            ),
+          ),
           const SizedBox(
             height: 5.0,
           ),

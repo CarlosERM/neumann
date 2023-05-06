@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neumann_flutter/view/components/form/registration_form.dart';
+import 'package:get/get.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
@@ -14,9 +15,14 @@ class Register extends StatelessWidget {
           child: Column(
             children: [
               AppBar(
-                leading: Icon(
-                  Icons.close,
-                  color: Theme.of(context).colorScheme.primary,
+                leading: InkWell(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Icon(
+                    Icons.close,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
                 ),
                 backgroundColor: Theme.of(context).colorScheme.secondary,
                 elevation: 0.0,

@@ -50,17 +50,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
           const SizedBox(height: 16),
           EmailInput(),
           const SizedBox(height: 16),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Senha",
-                style: Theme.of(context).textTheme.labelSmall,
-              ),
-              const SizedBox(height: 5.0),
-            ],
-          ),
-          const SizedBox(height: 16),
           PasswordInput(),
           const SizedBox(height: 30),
           PasswordInput(),

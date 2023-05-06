@@ -20,19 +20,21 @@ class Login extends StatelessWidget {
               image: AssetImage('assets/icons/neumann_logo_horizontal.jpg'),
             ),
             const LoginForm(),
-            Column(children: [
-              Text("Não possui uma conta?",
-                  style: Theme.of(context).textTheme.labelSmall),
-              InkWell(
-                child: Text(
-                  "Cadastre-se",
-                  style: Theme.of(context).textTheme.bodyMedium,
+            Column(
+              children: [
+                Text("Não possui uma conta?",
+                    style: Theme.of(context).textTheme.labelSmall),
+                InkWell(
+                  child: Text(
+                    "Cadastre-se",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  onTap: () {
+                    Get.toNamed("register");
+                  },
                 ),
-                onTap: () {
-                  Get.toNamed("register");
-                },
-              ),
-            ])
+              ],
+            )
           ],
         ),
       ),

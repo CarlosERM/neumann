@@ -1,4 +1,22 @@
 import 'package:flutter/material.dart';
+//  w100 → const FontWeight
+//     Thin, the least thick
+// w200 → const FontWeight
+//     Extra-light
+// w300 → const FontWeight
+//     Light
+// w400 → const FontWeight
+//     Normal / regular / plain
+// w500 → const FontWeight
+//     Medium
+// w600 → const FontWeight
+//     Semi-bold
+// w700 → const FontWeight
+//     Bold
+// w800 → const FontWeight
+//     Extra-bold
+// w900 → const FontWeight
+//     Black, the most thick
 
 ThemeData theme = ThemeData(
   fontFamily: 'Poppins',
@@ -40,7 +58,10 @@ ThemeData theme = ThemeData(
       fontWeight: FontWeight.w400,
       color: Color.fromRGBO(122, 122, 122, 1.000),
     ),
-    titleLarge: TextStyle(),
+    titleLarge: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+    ),
     titleMedium: TextStyle(),
     titleSmall: TextStyle(),
     bodyLarge: TextStyle(
@@ -77,6 +98,17 @@ ThemeData theme = ThemeData(
         double.infinity,
         48.0,
       ),
+    ),
+  ),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      backgroundColor: const Color.fromRGBO(
+        50,
+        129,
+        255,
+        1.000,
+      ),
+      fixedSize: const Size(43, 40),
     ),
   ),
 );

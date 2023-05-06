@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:neumann_flutter/view/pages/home.dart';
 import './view/forgot_password.dart';
-import './view/home.dart';
+import 'view/principal.dart';
 import './view/login.dart';
 import './view/register.dart';
 import 'util/theme.dart';
@@ -41,12 +42,12 @@ class MyApp extends StatelessWidget {
           page: () => const Register(),
           transition: Transition.downToUp,
           transitionDuration: const Duration(
-            milliseconds: 300,
+            milliseconds: 200,
           ),
         ),
         GetPage(
-          name: Routes.home,
-          page: () => Home(),
+          name: Routes.principal,
+          page: () => Principal(),
         ),
       ],
     );

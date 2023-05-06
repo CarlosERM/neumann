@@ -43,7 +43,7 @@ class _LoginFormState extends State<LoginForm> {
             Button(
               formKey: _formKey,
               name: "Login",
-              route: Routes.home,
+              route: Routes.principal,
             ),
           ],
         ),

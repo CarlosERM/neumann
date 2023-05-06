@@ -7,8 +7,19 @@ class Publications extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      children: <Widget>[
+      children: const <Widget>[
+        Publication(),
+        SizedBox(height: 16.0),
+        Publication(),
+        SizedBox(height: 16.0),
+        Publication(),
+        SizedBox(height: 16.0),
+        Publication(),
+        SizedBox(height: 16.0),
+        Publication(),
+        SizedBox(height: 16.0),
         Publication(),
         SizedBox(height: 16.0),
       ],
