@@ -1,8 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'package:neumann_flutter/view/pages/home.dart';
-import './view/forgot_password.dart';
+import 'view/forgot_password_one.dart';
 import 'view/principal.dart';
 import './view/login.dart';
 import './view/register.dart';

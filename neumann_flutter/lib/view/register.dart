@@ -6,8 +6,8 @@ class Register extends StatelessWidget {
   const Register({super.key});
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: SingleChildScrollView(
+    return Scaffold(
+      body: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary,

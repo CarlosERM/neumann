@@ -10,7 +10,32 @@ class ForgotPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        titleSpacing: 0,
+        title: Text(
+          "Senha",
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
+        toolbarHeight: 76.0,
+        elevation: 0.0,
+        backgroundColor: Theme.of(context).colorScheme.background,
+        leading: TextButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(
+              Theme.of(context).colorScheme.secondary,
+            ),
+          ),
+          onPressed: () {
+            print("Volta pra trás.");
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Form(

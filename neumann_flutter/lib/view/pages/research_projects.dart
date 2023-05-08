@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neumann_flutter/view/components/form/message_input.dart';
 import 'package:neumann_flutter/view/components/my_app_bar.dart';
 import 'package:neumann_flutter/view/components/my_card.dart';
-import 'package:neumann_flutter/view/components/publications.dart';
-import 'package:neumann_flutter/view/components/research_group_tile.dart';
 
 class ResearchProjects extends StatelessWidget {
   const ResearchProjects({super.key});
@@ -19,7 +16,7 @@ class ResearchProjects extends StatelessWidget {
             Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
-                  children: [
+                  children: const [
                     MyCard(),
                     MyCard(),
                     MyCard(),

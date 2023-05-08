@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:neumann_flutter/view/components/form/button.dart';
 import 'package:neumann_flutter/view/components/form/name_input.dart';
 import 'package:neumann_flutter/view/components/form/password_input.dart';
 import 'package:neumann_flutter/view/components/form/profile_picture.dart';
-import '../../../controller/image_controller.dart';
-import '../../../controller/password_input_controller.dart';
 import 'email_input.dart';
 
 class RegistrationForm extends StatefulWidget {
@@ -55,6 +52,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
           PasswordInput(),
           const SizedBox(height: 40),
           Button(formKey: _formKey, name: "Registrar"),
+          const SizedBox(height: 100),
         ],
       ),
     );

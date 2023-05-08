@@ -42,6 +42,7 @@ ThemeData theme = ThemeData(
     displayMedium: TextStyle(
       fontSize: 24,
       fontWeight: FontWeight.w400,
+      color: Color.fromRGBO(0, 0, 0, 1.000),
     ),
     displaySmall: TextStyle(
       fontSize: 20,
