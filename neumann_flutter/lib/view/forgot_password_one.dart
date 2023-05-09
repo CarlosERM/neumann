@@ -3,8 +3,8 @@ import 'package:neumann_flutter/view/components/form/button.dart';
 import 'package:neumann_flutter/view/components/form/email_input.dart';
 import '../../../util/routes.dart';
 
-class ForgotPassword extends StatelessWidget {
-  ForgotPassword({super.key});
+class ForgotPasswordOne extends StatelessWidget {
+  ForgotPasswordOne({super.key});
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -38,7 +38,7 @@ class ForgotPassword extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -50,13 +50,13 @@ class ForgotPassword extends StatelessWidget {
                     "Digite o seu email",
                     style: Theme.of(context).textTheme.displayMedium,
                   ),
-                  const SizedBox(height: 16.0),
+                  const SizedBox(height: 30.0),
                   EmailInput(),
                   const SizedBox(height: 30.0),
                   Button(
                     formKey: _formKey,
                     name: "Enviar",
-                    route: Routes.forgotPassword,
+                    route: Routes.forgotPasswordTwo,
                   )
                 ],
               ),

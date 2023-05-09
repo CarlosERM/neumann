@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:neumann_flutter/view/components/form/button.dart';
 import 'package:neumann_flutter/view/components/form/email_input.dart';
+import 'package:neumann_flutter/view/components/form/verification_code_input.dart';
 import '../../../util/routes.dart';
 
-class ForgotPassword extends StatelessWidget {
-  ForgotPassword({super.key});
+class ForgotPasswordTwo extends StatelessWidget {
+  ForgotPasswordTwo({super.key});
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       appBar: AppBar(
         titleSpacing: 0,
         title: Text(
@@ -37,7 +39,7 @@ class ForgotPassword extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -45,16 +47,35 @@ class ForgotPassword extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  EmailInput(),
+                  Text(
+                    "Digite o código",
+                    style: Theme.of(context).textTheme.displayMedium,
+                  ),
+                  const SizedBox(height: 30.0),
+                  Row(
+                    children: [
+                      VerificationCodeInput(id: 1),
+                      SizedBox(width: 10.0),
+                      VerificationCodeInput(id: 2),
+                      SizedBox(width: 10.0),
+                      VerificationCodeInput(id: 3),
+                      SizedBox(width: 10.0),
+                      VerificationCodeInput(id: 4),
+                    ],
+                  ),
                   const SizedBox(height: 30.0),
                   Button(
                     formKey: _formKey,
                     name: "Enviar",
-                    route: Routes.forgotPassword,
+                    route: Routes.forgotPasswordTwo,
                   )
                 ],
               ),
-              const Text("Logo"),
+              const Image(
+                width: 256,
+                height: 125,
+                image: AssetImage('assets/icons/neumann_logo.png'),
+              ),
             ],
           ),
         ),

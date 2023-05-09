@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:neumann_flutter/view/forgot_password_two.dart';
 import 'view/forgot_password_one.dart';
 import 'view/principal.dart';
 import './view/login.dart';
@@ -33,8 +34,12 @@ class MyApp extends StatelessWidget {
           page: () => const Login(),
         ),
         GetPage(
-          name: Routes.forgotPassword,
-          page: () => ForgotPassword(),
+          name: Routes.forgotPasswordOne,
+          page: () => ForgotPasswordOne(),
+        ),
+        GetPage(
+          name: Routes.forgotPasswordTwo,
+          page: () => ForgotPasswordTwo(),
         ),
         GetPage(
           name: Routes.register,
