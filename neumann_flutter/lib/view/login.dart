@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:neumann_flutter/view/components/form/login_form.dart';
+
+import 'components/form/login_form.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -17,7 +15,7 @@ class VerificationCodeInput extends StatelessWidget {
             }
           } else if (id == 4) {
             if (value.isNotEmpty) {
-              print("envia pra api e vê se deu.");
+              print("Envia pra api e vê se deu.");
             } else {
               FocusScope.of(context).previousFocus();
             }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:neumann_flutter/view/components/form/button.dart';
-import 'package:neumann_flutter/view/components/form/name_input.dart';
-import 'package:neumann_flutter/view/components/form/password_input.dart';
-import 'package:neumann_flutter/view/components/form/profile_picture.dart';
+import 'button.dart';
 import 'email_input.dart';
+import 'name_input.dart';
+import 'password_input.dart';
+import 'profile_picture.dart';
 
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({super.key});

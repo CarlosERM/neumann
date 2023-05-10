@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:neumann_flutter/view/components/form/button.dart';
-import 'package:neumann_flutter/view/components/form/email_input.dart';
+import 'package:get/get.dart';
 import '../../../util/routes.dart';
+import '../components/form/button.dart';
+import '../components/form/email_input.dart';
 
 class ForgotPasswordOne extends StatelessWidget {
   ForgotPasswordOne({super.key});
@@ -29,7 +30,7 @@ class ForgotPasswordOne extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            print("Volta pra trás.");
+            Get.back();
           },
           child: Icon(
             Icons.arrow_back_ios,

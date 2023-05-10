@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:neumann_flutter/view/components/my_app_bar.dart';
-import 'package:neumann_flutter/view/components/my_card.dart';
+
+import 'components/my_app_bar.dart';
+import 'components/my_card.dart';
 
 class ResearchProjects extends StatelessWidget {
   const ResearchProjects({super.key});

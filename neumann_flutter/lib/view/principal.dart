@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:neumann_flutter/controller/my_navigation_bar_controller.dart';
-import 'package:neumann_flutter/view/pages/home.dart';
-import 'package:neumann_flutter/view/pages/research_projects.dart';
-import 'package:neumann_flutter/view/pages/profile.dart';
 import '../controller/image_controller.dart';
+import '../controller/my_navigation_bar_controller.dart';
+import 'home.dart';
+import 'profile.dart';
+import 'research_projects.dart';
 
 class Principal extends StatelessWidget {
   Principal({super.key});

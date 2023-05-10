@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:neumann_flutter/view/components/form/button.dart';
-import 'package:neumann_flutter/view/components/form/email_input.dart';
-import 'package:neumann_flutter/view/components/form/verification_code_input.dart';
+import 'package:get/get.dart';
 import '../../../util/routes.dart';
+import '../components/form/button.dart';
+import '../components/form/verification_code_input.dart';
 
 class ForgotPasswordTwo extends StatelessWidget {
   ForgotPasswordTwo({super.key});
@@ -30,7 +30,7 @@ class ForgotPasswordTwo extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            print("Volta pra trás.");
+            Get.back();
           },
           child: Icon(
             Icons.arrow_back_ios,
@@ -53,7 +53,7 @@ class ForgotPasswordTwo extends StatelessWidget {
                   ),
                   const SizedBox(height: 30.0),
                   Row(
-                    children: [
+                    children: const [
                       VerificationCodeInput(id: 1),
                       SizedBox(width: 10.0),
                       VerificationCodeInput(id: 2),
@@ -67,7 +67,7 @@ class ForgotPasswordTwo extends StatelessWidget {
                   Button(
                     formKey: _formKey,
                     name: "Enviar",
-                    route: Routes.forgotPasswordTwo,
+                    route: Routes.forgotPasswordThree,
                   )
                 ],
               ),

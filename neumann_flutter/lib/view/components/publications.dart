@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neumann_flutter/view/components/publication.dart';
+
+import 'publication.dart';
 
 class Publications extends StatelessWidget {
   const Publications({super.key});

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:neumann_flutter/controller/name_input_controller.dart';
+
+import '../../../controller/name_input_controller.dart';
 
 class NameInput extends StatelessWidget {
   NameInput({super.key});

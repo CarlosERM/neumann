@@ -103,12 +103,7 @@ ThemeData theme = ThemeData(
   ),
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
-      backgroundColor: const Color.fromRGBO(
-        50,
-        129,
-        255,
-        1.000,
-      ),
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       fixedSize: const Size(43, 40),
     ),
   ),

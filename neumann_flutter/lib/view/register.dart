@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:neumann_flutter/view/components/form/registration_form.dart';
 import 'package:get/get.dart';
+import 'package:neumann_flutter/view/modal.dart';
+
+import 'components/form/registration_form.dart';
+import 'components/form/button.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
@@ -17,7 +20,15 @@ class Register extends StatelessWidget {
               AppBar(
                 leading: InkWell(
                   onTap: () {
-                    Get.back();
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Modal(
+                          title: "Sair",
+                          content: "Tem certeza que deseja sair?",
+                        );
+                      },
+                    );
                   },
                   child: Icon(
                     Icons.close,

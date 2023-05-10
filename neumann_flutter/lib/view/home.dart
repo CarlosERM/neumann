@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:neumann_flutter/controller/my_navigation_bar_controller.dart';
-import 'package:neumann_flutter/view/components/my_app_bar.dart';
 
-import '../../controller/image_controller.dart';
-import '../components/form/message_input.dart';
-import '../components/publications.dart';
-import '../components/research_group_tile.dart';
+import '../controller/image_controller.dart';
+import '../controller/my_navigation_bar_controller.dart';
+import 'components/form/message_input.dart';
+import 'components/my_app_bar.dart';
+import 'components/publications.dart';
+import 'components/research_group_tile.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -41,7 +41,7 @@ class Home extends StatelessWidget {
                   const Publications(),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
