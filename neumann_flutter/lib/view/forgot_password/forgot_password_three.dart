@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../../util/routes.dart';
 import '../components/form/button.dart';
 import '../components/form/password_input.dart';
+import '../components/modal.dart';
+import '../components/my_app_bar_password.dart';
 
 class ForgotPasswordThree extends StatelessWidget {
   ForgotPasswordThree({super.key});
@@ -12,32 +13,7 @@ class ForgotPasswordThree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.secondary,
-      appBar: AppBar(
-        titleSpacing: 0,
-        title: Text(
-          "Senha",
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
-        toolbarHeight: 76.0,
-        elevation: 0.0,
-        backgroundColor: Theme.of(context).colorScheme.background,
-        leading: TextButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-              Theme.of(context).colorScheme.secondary,
-            ),
-          ),
-          onPressed: () {
-            Get.back();
-          },
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
-      ),
+      appBar: MyAppBarPassword(important: true),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
         child: Form(

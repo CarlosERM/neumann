@@ -7,7 +7,7 @@ import '../../controller/image_controller.dart';
 
 class MyAppBar extends StatelessWidget with PreferredSizeWidget {
   MyAppBar({super.key, this.username = ''});
-  String username;
+  final String username;
 
   @override
   Size get preferredSize => Size.fromHeight(76.0);

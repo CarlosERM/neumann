@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:neumann_flutter/view/modal.dart';
-
 import 'components/form/registration_form.dart';
-import 'components/form/button.dart';
+import 'components/modal.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
