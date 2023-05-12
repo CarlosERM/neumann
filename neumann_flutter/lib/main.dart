@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
       DeviceOrientation.portraitUp,
     ]);
+
     return GetMaterialApp(
       title: 'Neumann',
       theme: theme,
