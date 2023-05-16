@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../controller/password_input_controller.dart';
 import '../../../util/routes.dart';
 import 'button.dart';
 import 'email_input.dart';
@@ -16,6 +17,7 @@ class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController tec = TextEditingController();
+  final PasswordInputController ip = Get.put(PasswordInputController());
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -26,7 +28,7 @@ class _LoginFormState extends State<LoginForm> {
           children: [
             EmailInput(),
             const SizedBox(height: 18),
-            PasswordInput(),
+            PasswordInput(tec: ip.passwordControllerOne, login: true),
             const SizedBox(height: 16),
             InkWell(
               child: Text(

@@ -3,11 +3,10 @@ import 'package:get/get.dart';
 import '../../../controller/password_input_controller.dart';
 
 class PasswordInput extends StatelessWidget {
-  PasswordInput({
-    super.key,
-  });
+  PasswordInput({super.key, required this.tec, this.login = false});
+  bool login;
+  final TextEditingController tec;
   final PasswordInputController ip = Get.put(PasswordInputController());
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,6 +19,7 @@ class PasswordInput extends StatelessWidget {
         const SizedBox(height: 5.0),
         ObxValue(
           (data) => TextFormField(
+            controller: tec,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             cursorColor: Theme.of(context).colorScheme.primary,
             obscureText: data.value,
@@ -67,6 +67,13 @@ class PasswordInput extends StatelessWidget {
                   !ip.validatePassword(password)) {
                 return 'A senha é inválida.';
               } else {
+                if (!login) {
+                  if (!ip.passwordIsEqual()) {
+                    return "As senhas não são iguais.";
+                  } else {
+                    return null;
+                  }
+                }
                 return null;
               }
             },

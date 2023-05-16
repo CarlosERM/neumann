@@ -28,9 +28,9 @@ class ForgotPasswordThree extends StatelessWidget {
                     style: Theme.of(context).textTheme.displayMedium,
                   ),
                   const SizedBox(height: 30),
-                  PasswordInput(),
+                  // PasswordInput(),
                   const SizedBox(height: 18),
-                  PasswordInput(),
+                  // PasswordInput(),
                   const SizedBox(height: 30),
                   Button(
                     formKey: _formKey,

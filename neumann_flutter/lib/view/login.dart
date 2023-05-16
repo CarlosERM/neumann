@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'components/form/login_form.dart';
+import '../util/routes.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -31,7 +31,7 @@ class Login extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   onTap: () {
-                    Get.toNamed("register");
+                    Get.toNamed(Routes.register);
                   },
                 ),
               ],

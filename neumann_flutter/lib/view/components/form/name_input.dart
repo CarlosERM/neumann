@@ -6,10 +6,9 @@ import '../../../controller/name_input_controller.dart';
 class NameInput extends StatelessWidget {
   NameInput({super.key});
 
-  final NameInputController inc = Get.put(
+  final NameInputController nic = Get.put(
     NameInputController(),
   );
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,6 +20,7 @@ class NameInput extends StatelessWidget {
         ),
         const SizedBox(height: 5.0),
         TextFormField(
+          controller: nic.nameController,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           cursorColor: Theme.of(context).colorScheme.primary,
           decoration: InputDecoration(
@@ -52,7 +52,7 @@ class NameInput extends StatelessWidget {
             ),
           ),
           validator: (name) {
-            // if (name == null || name.isEmpty || !inc.validateName(name)) {
+            // if (name == null || name.isEmpty || !nic.validateName(name)) {
             //   return 'O nome é inválido.';
             // } else {
             //   return null;

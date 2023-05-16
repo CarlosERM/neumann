@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:neumann_flutter/view/login_register_flow/authentication_manager.dart';
 
 class InputMessage extends StatelessWidget {
-  const InputMessage({super.key});
-
+  InputMessage({super.key});
+  AuthenticationManager auth_manager = AuthenticationManager();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -54,7 +55,9 @@ class InputMessage extends StatelessWidget {
           ),
           Expanded(
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                auth_manager.logOut();
+              },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(
                   const Color.fromRGBO(0, 0, 0, 1.000),

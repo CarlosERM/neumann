@@ -1,16 +1,19 @@
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'view/forgot_password/forgot_password_one.dart';
 import 'view/forgot_password/forgot_password_three.dart';
 import 'view/forgot_password/forgot_password_two.dart';
+import 'view/login_register_flow/splash_screen.dart';
 import 'view/principal.dart';
 import './view/login.dart';
 import './view/register.dart';
 import 'util/theme.dart';
 import 'util/routes.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -27,9 +30,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Neumann',
       theme: theme,
-      home: const Login(),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.login,
       getPages: [
         GetPage(
           name: Routes.login,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:neumann_flutter/view/login_register_flow/authentication_manager.dart';
 import '../controller/image_controller.dart';
 import '../controller/my_navigation_bar_controller.dart';
 import 'home.dart';

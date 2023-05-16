@@ -20,6 +20,7 @@ class EmailInput extends StatelessWidget {
         ),
         const SizedBox(height: 5.0),
         TextFormField(
+          controller: ie.emailController,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           cursorColor: Theme.of(context).colorScheme.primary,
           decoration: InputDecoration(
