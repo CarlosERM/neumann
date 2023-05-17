@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final registerResponseModel = registerResponseModelFromJson(jsonString);
+
 import 'dart:convert';
 
 RegisterResponseModel registerResponseModelFromJson(String str) =>
@@ -9,20 +13,44 @@ String registerResponseModelToJson(RegisterResponseModel data) =>
 class RegisterResponseModel {
   String message;
   String token;
+  User user;
 
   RegisterResponseModel({
     required this.message,
     required this.token,
+    required this.user,
   });
 
   factory RegisterResponseModel.fromJson(Map<String, dynamic> json) =>
       RegisterResponseModel(
         message: json["message"],
         token: json["token"],
+        user: User.fromJson(json["user"]),
       );
 
   Map<String, dynamic> toJson() => {
         "message": message,
         "token": token,
+        "user": user.toJson(),
+      };
+}
+
+class User {
+  String id;
+  String nome;
+
+  User({
+    required this.id,
+    required this.nome,
+  });
+
+  factory User.fromJson(Map<String, dynamic> json) => User(
+        id: json["id"],
+        nome: json["nome"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "nome": nome,
       };
 }

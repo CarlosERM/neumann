@@ -11,10 +11,12 @@ class AuthenticationManager extends GetxController with CacheManager {
     Get.toNamed(Routes.login);
   }
 
-  void login(String? token) async {
+  void login(String? token, String? id, String? user) async {
     isLogged.value = true;
     //Token is cached
     await saveToken(token);
+    await saveUserInfo(id, user);
+
     Get.deleteAll();
     Get.toNamed(Routes.principal);
   }

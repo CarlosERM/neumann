@@ -1,6 +1,13 @@
 import 'package:get_storage/get_storage.dart';
 
 mixin CacheManager {
+  Future<bool> saveUserInfo(String? id, String? nome) async {
+    final box = GetStorage();
+    await box.write('id', id);
+    await box.write('nome', nome);
+    return true;
+  }
+
   Future<bool> saveToken(String? token) async {
     final box = GetStorage();
     await box.write(CacheManagerKey.TOKEN.toString(), token);

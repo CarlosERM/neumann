@@ -6,6 +6,7 @@ import 'components/form/message_input.dart';
 import 'components/my_app_bar.dart';
 import 'components/publications.dart';
 import 'components/research_group_tile.dart';
+import '../controller//home_controller.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -15,6 +16,9 @@ class Home extends StatelessWidget {
   final MyNavigationBarController nb = Get.put(
     MyNavigationBarController(),
   );
+  final HomeController hc = Get.put(
+    HomeController(),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +27,19 @@ class Home extends StatelessWidget {
         color: Theme.of(context).colorScheme.background,
         child: Column(
           children: [
-            MyAppBar(
-              username: "Jesmmer",
+            FutureBuilder(
+              future: hc.getUsername(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return MyAppBar(
+                    username: snapshot.data!,
+                  );
+                } else {
+                  return MyAppBar(
+                    username: "Seita",
+                  );
+                }
+              },
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
