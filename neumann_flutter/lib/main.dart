@@ -1,3 +1,4 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ import 'util/theme.dart';
 import 'util/routes.dart';
 
 void main() async {
+  await dotenv.load(fileName: ".env");
   await GetStorage.init();
   runApp(const MyApp());
 }
