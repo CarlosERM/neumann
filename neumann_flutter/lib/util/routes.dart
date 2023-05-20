@@ -5,6 +5,8 @@ class Routes {
   static String forgotPasswordTwo = '/forgot_password_two';
   static String forgotPasswordThree = '/forgot_password_three';
   static String principal = '/principal';
+  static String editProfile = '/edit_profile';
   static String registrationResearchProject = '/registration_research_project';
+  static String editResearchProject = '/edit_registration_research_project';
   static String researchProject = '/research_project';
 }

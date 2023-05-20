@@ -8,9 +8,10 @@ import '../message_input.dart';
 import '../name_input/name_input.dart';
 
 class RegistrationResearchProjectForm extends StatelessWidget {
-  RegistrationResearchProjectForm({super.key});
+  RegistrationResearchProjectForm({super.key, required this.name});
 
   final _formKey = GlobalKey<FormState>();
+  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class RegistrationResearchProjectForm extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            "Cadastrar Projeto",
+            name,
             style: Theme.of(context).textTheme.headlineLarge,
           ),
           const SizedBox(height: 20),

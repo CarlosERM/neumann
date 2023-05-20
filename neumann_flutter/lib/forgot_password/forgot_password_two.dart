@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../../util/routes.dart';
 import '../components/form/button.dart';
 import '../components/form/verification_code_input.dart';
-import '../components/my_app_bar/my_app_bar_password.dart';
+import '../components/my_app_bar/my_app_bar_back.dart';
 
 class ForgotPasswordTwo extends StatelessWidget {
   ForgotPasswordTwo({super.key});
@@ -13,7 +13,8 @@ class ForgotPasswordTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.secondary,
-      appBar: MyAppBarPassword(
+      appBar: MyAppBarBack(
+        name: "Senha",
         important: false,
       ),
       body: Padding(

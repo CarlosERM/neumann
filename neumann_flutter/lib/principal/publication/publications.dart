@@ -28,7 +28,12 @@ class Publications extends StatelessWidget {
           return Column(
             children: const [
               SizedBox(height: 32),
-              Center(child: CircularProgressIndicator()),
+              // Center(child: CircularProgressIndicator()),
+              Publication(
+                titulo: "Lorem Ipsum",
+                conteudo: "Lorem ipsum Lorem Ipsum.",
+                autor: "Carlos Eduardo Rocha Miranda",
+              )
             ],
           );
         }

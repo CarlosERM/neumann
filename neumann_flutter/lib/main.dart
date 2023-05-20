@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
+import 'edit_profile/edit_profile.dart';
 import 'forgot_password/forgot_password_one.dart';
 import 'forgot_password/forgot_password_three.dart';
 import 'forgot_password/forgot_password_two.dart';
@@ -79,7 +80,8 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: Routes.registrationResearchProject,
-          page: () => const RegistrationResearchProject(),
+          page: () =>
+              const RegistrationResearchProject(name: 'Cadastrar Projeto'),
         ),
         GetPage(
           name: Routes.researchProject,
@@ -88,6 +90,18 @@ class MyApp extends StatelessWidget {
           transitionDuration: const Duration(
             milliseconds: 200,
           ),
+        ),
+        GetPage(
+          name: Routes.editResearchProject,
+          page: () => const RegistrationResearchProject(name: 'Editar projeto'),
+          transition: Transition.downToUp,
+          transitionDuration: const Duration(
+            milliseconds: 200,
+          ),
+        ),
+        GetPage(
+          name: Routes.editProfile,
+          page: () => EditProfile(),
         ),
       ],
     );

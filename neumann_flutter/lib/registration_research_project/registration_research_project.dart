@@ -3,7 +3,8 @@ import 'package:neumann_flutter/components/form/register_research_project_form/r
 import '../components/modal/modal.dart';
 
 class RegistrationResearchProject extends StatelessWidget {
-  const RegistrationResearchProject({super.key});
+  const RegistrationResearchProject({super.key, required this.name});
+  final String name;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +38,7 @@ class RegistrationResearchProject extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                child: RegistrationResearchProjectForm(),
+                child: RegistrationResearchProjectForm(name: name),
               ),
             ],
           ),

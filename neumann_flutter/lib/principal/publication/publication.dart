@@ -15,7 +15,6 @@ class Publication extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          splashColor: Colors.black,
           leading: const CircleAvatar(),
           title: Text.rich(
             TextSpan(
@@ -104,15 +103,16 @@ class Publication extends StatelessWidget {
                       ),
                     ],
                   ),
-                  InkWell(
-                      child: const Icon(
-                        Icons.delete,
-                        size: 16.0,
-                        color: Color.fromRGBO(205, 25, 30, 1.000),
-                      ),
-                      onTap: () {
-                        print("Delete");
-                      }),
+                  IconButton(
+                    onPressed: () {
+                      print("Delete");
+                    },
+                    icon: const Icon(
+                      Icons.delete,
+                      size: 16.0,
+                      color: Color.fromRGBO(205, 25, 30, 1.000),
+                    ),
+                  ),
                 ],
               ),
             ],

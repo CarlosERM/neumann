@@ -23,8 +23,12 @@ class ProfilePicture extends StatelessWidget {
                     color: const Color.fromRGBO(240, 240, 240, 1),
                   ),
                   child: _.imageFile != null
-                      ? Image.file(
-                          File(_.imageFile!.path),
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(10.0),
+                          child: Image.file(
+                            fit: BoxFit.cover,
+                            File(_.imageFile!.path),
+                          ),
                         )
                       : const Icon(
                           Icons.camera_alt,

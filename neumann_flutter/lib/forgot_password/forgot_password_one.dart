@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../util/routes.dart';
 import '../components/form/button.dart';
 import '../components/form/email_input/email_input.dart';
-import '../components/my_app_bar/my_app_bar_password.dart';
+import '../components/my_app_bar/my_app_bar_back.dart';
 
 class ForgotPasswordOne extends StatelessWidget {
   ForgotPasswordOne({super.key});
@@ -12,7 +12,7 @@ class ForgotPasswordOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.secondary,
-      appBar: MyAppBarPassword(important: true),
+      appBar: MyAppBarBack(important: true, name: "Senha"),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
         child: Form(

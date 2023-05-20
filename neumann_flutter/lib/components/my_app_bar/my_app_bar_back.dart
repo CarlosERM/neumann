@@ -3,13 +3,14 @@ import 'package:get/get.dart';
 
 import '../modal/modal.dart';
 
-class MyAppBarPassword extends StatelessWidget with PreferredSizeWidget {
-  MyAppBarPassword({
+class MyAppBarBack extends StatelessWidget with PreferredSizeWidget {
+  MyAppBarBack({
     super.key,
+    required this.name,
     required this.important,
   });
   final bool important;
-
+  final String name;
   @override
   Size get preferredSize => const Size.fromHeight(76.0);
   @override
@@ -17,7 +18,7 @@ class MyAppBarPassword extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       titleSpacing: 0,
       title: Text(
-        "Senha",
+        name,
         style: TextStyle(
           color: Theme.of(context).colorScheme.primary,
         ),
