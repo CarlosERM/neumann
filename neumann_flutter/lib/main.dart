@@ -3,13 +3,15 @@ import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
-import 'view/forgot_password/forgot_password_one.dart';
-import 'view/forgot_password/forgot_password_three.dart';
-import 'view/forgot_password/forgot_password_two.dart';
-import 'view/login_register_flow/splash_screen.dart';
-import 'view/principal.dart';
-import './view/login.dart';
-import './view/register.dart';
+import 'forgot_password/forgot_password_one.dart';
+import 'forgot_password/forgot_password_three.dart';
+import 'forgot_password/forgot_password_two.dart';
+import 'registration_research_project/registration_research_project.dart';
+import 'research_project/research_project.dart';
+import 'splash_screen/splash_screen.dart';
+import 'principal/principal.dart';
+import 'login/login.dart';
+import 'register/register.dart';
 import 'util/theme.dart';
 import 'util/routes.dart';
 
@@ -74,6 +76,18 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: Routes.principal,
           page: () => Principal(),
+        ),
+        GetPage(
+          name: Routes.registrationResearchProject,
+          page: () => const RegistrationResearchProject(),
+        ),
+        GetPage(
+          name: Routes.researchProject,
+          page: () => const ResearchProject(),
+          transition: Transition.downToUp,
+          transitionDuration: const Duration(
+            milliseconds: 200,
+          ),
         ),
       ],
     );
