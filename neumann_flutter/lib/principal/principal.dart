@@ -24,7 +24,7 @@ class Principal extends StatelessWidget {
           children: [
             Home(),
             const ResearchProjects(),
-            const Profile(),
+            Profile(),
           ],
         ),
       ),

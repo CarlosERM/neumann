@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../components/my_app_bar/my_app_bar.dart';
 import '../components/form/profile_picture/image_controller.dart';
-import '../components/form/message_input.dart';
+import 'message_input.dart';
 import '../principal/publication/publications.dart';
 import '../principal/research_group_tile.dart';
 import 'home_controller.dart';
@@ -48,7 +48,7 @@ class Home extends StatelessWidget {
                         "Grupo de Excelência em Dados, Automação e Inteligência Artificial.",
                   ),
                   const SizedBox(height: 30),
-                  InputMessage(),
+                  MessageInput(),
                   Publications(),
                 ],
               ),

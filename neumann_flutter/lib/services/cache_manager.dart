@@ -1,10 +1,11 @@
 import 'package:get_storage/get_storage.dart';
 
 mixin CacheManager {
-  Future<bool> saveUserInfo(String? id, String? nome) async {
+  Future<bool> saveUserInfo(String? id, String? nome, String? email) async {
     final box = GetStorage();
     await box.write('id', id);
     await box.write('nome', nome);
+    await box.write('email', email);
     return true;
   }
 

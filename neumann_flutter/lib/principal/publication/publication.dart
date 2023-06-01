@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Publication extends StatelessWidget {
-  const Publication(
-      {super.key,
-      required this.titulo,
-      required this.conteudo,
-      required this.autor});
-  final String titulo;
+  const Publication({super.key, required this.conteudo, required this.autor});
   final String conteudo;
   final String autor;
   @override

@@ -24,7 +24,6 @@ class Publications extends StatelessWidget {
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Publication(
-                      titulo: snapshot.data[index].titulo,
                       conteudo: snapshot.data[index].conteudo,
                       autor: snapshot.data[index].autor);
                 });
@@ -34,7 +33,6 @@ class Publications extends StatelessWidget {
                 SizedBox(height: 32),
                 // Center(child: CircularProgressIndicator()),
                 Publication(
-                  titulo: "Lorem Ipsum",
                   conteudo: "Lorem ipsum Lorem Ipsum.",
                   autor: "Carlos Eduardo Rocha Miranda",
                 )

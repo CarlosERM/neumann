@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:neumann_flutter/services/authentication_manager.dart';
+import 'package:get/get.dart';
+import 'package:neumann_flutter/home/message_controller.dart';
 
-class InputMessage extends StatelessWidget {
-  InputMessage({super.key});
-  AuthenticationManager auth_manager = AuthenticationManager();
+class MessageInput extends StatelessWidget {
+  MessageInput({super.key});
+  MessageController mc = Get.put(MessageController());
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -13,6 +15,7 @@ class InputMessage extends StatelessWidget {
           Expanded(
             flex: 5,
             child: TextFormField(
+              controller: mc.tec,
               keyboardType: TextInputType.multiline,
               minLines: 1,
               maxLines: 3,
@@ -56,7 +59,7 @@ class InputMessage extends StatelessWidget {
           Expanded(
             child: ElevatedButton(
               onPressed: () {
-                auth_manager.logOut();
+                mc.createPub();
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(

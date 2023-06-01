@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:neumann_flutter/components/form/button.dart';
 import 'package:neumann_flutter/components/form/email_input/email_input.dart';
 
 import '../components/form/name_input/name_input.dart';
 import '../components/my_app_bar/my_app_bar_back.dart';
 import '../util/routes.dart';
+import './edit_profile_controller.dart';
 
-class EditProfile extends StatelessWidget {
+class EditProfile extends StatefulWidget {
   EditProfile({super.key});
 
+  @override
+  State<EditProfile> createState() => _EditProfileState();
+}
+
+class _EditProfileState extends State<EditProfile> {
   final _formKey = GlobalKey<FormState>();
+
+  final EditProfileController nic = Get.put(
+    EditProfileController(),
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => nic.getUsernameEmail());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +69,9 @@ class EditProfile extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
                   child: Column(
                     children: [
-                      NameInput(name: "Nome completo"),
+                      NameInput(
+                        name: "Nome completo",
+                      ),
                       const SizedBox(
                         height: 16,
                       ),
@@ -60,12 +79,17 @@ class EditProfile extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      Button(formKey: _formKey, name: "Salvar", route: ''),
+                      Button(
+                        formKey: _formKey,
+                        name: "Salvar",
+                        route: 'iii',
+                      ),
                       const SizedBox(height: 16),
                       Button(
-                          formKey: _formKey,
-                          name: "Trocar senha",
-                          route: Routes.forgotPasswordOne),
+                        formKey: _formKey,
+                        name: "Trocar senha",
+                        route: Routes.forgotPasswordOne,
+                      ),
                     ],
                   ),
                 ),

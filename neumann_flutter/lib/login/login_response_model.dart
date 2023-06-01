@@ -34,23 +34,27 @@ class LoginResponseModel {
 class User {
   String id;
   String nome;
+  String email;
   String token;
 
   User({
     required this.id,
     required this.nome,
+    required this.email,
     required this.token,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => User(
         id: json["id"],
         nome: json["nome"],
+        email: json["email"],
         token: json["token"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "nome": nome,
+        "email": email,
         "token": token,
       };
 }

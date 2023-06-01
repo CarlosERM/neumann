@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../edit_profile/edit_profile_controller.dart';
 import 'email_input/email_input_controller.dart';
 import 'name_input/name_input_controller.dart';
 import '../../register/register_controller.dart';
@@ -15,12 +16,12 @@ class Button extends StatelessWidget {
     required this.route,
   });
   final GlobalKey<FormState> formKey;
-
-  final RegisterController rc = Get.put(RegisterController());
-  final LoginController lc = Get.put(LoginController());
-
   final String name;
   final String route;
+  final RegisterController rc = Get.put(RegisterController());
+  final LoginController lc = Get.put(LoginController());
+  final EditProfileController epc = Get.put(EditProfileController());
+
   final NameInputController nic = Get.put(
     NameInputController(),
   );
@@ -43,8 +44,15 @@ class Button extends StatelessWidget {
             );
           } else if (name == 'Login') {
             lc.loginUser(
-                ie.emailController.text, ip.passwordControllerOne.text);
+              ie.emailController.text,
+              ip.passwordControllerOne.text,
+            );
+          } else if (name == 'Salvar') {
+            epc.editProfile();
+          } else if (name == 'Salvar') {
+            epc.editProfile();
           }
+          print(name);
         }
         // Get.toNamed(Routes.principal);
       },

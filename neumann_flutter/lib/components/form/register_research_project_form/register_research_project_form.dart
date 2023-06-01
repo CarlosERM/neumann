@@ -4,7 +4,6 @@ import 'package:neumann_flutter/components/form/button.dart';
 import 'package:neumann_flutter/components/form/description_input.dart';
 import 'package:neumann_flutter/util/routes.dart';
 import '../../form/profile_picture/profile_picture.dart';
-import '../message_input.dart';
 import '../name_input/name_input.dart';
 
 class RegistrationResearchProjectForm extends StatelessWidget {

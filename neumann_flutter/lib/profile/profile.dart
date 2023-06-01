@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'profile_options.dart';
+import 'profile_controller.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({super.key});
+  Profile({super.key});
+  ProfileController pc = Get.put(ProfileController());
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +21,21 @@ class Profile extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            Text(
-              "Jesmmer Alves",
-              style: Theme.of(context).textTheme.titleLarge,
+            FutureBuilder(
+              future: pc.getUsername(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text(
+                    snapshot.data!,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  );
+                } else {
+                  return Text(
+                    "John Doe",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  );
+                }
+              },
             ),
             Text(
               "Coordenador",

@@ -22,7 +22,8 @@ class RegisterController extends GetxController with StateMixin {
         RegisterRequestModel(nome: nome, email: email, senha: senha));
     if (response != null) {
       /// Seta o isLogin para verdadeiro.
-      _authManager.login(response.token, response.user.id, response.user.nome);
+      _authManager.login(response.token, response.user.id, response.user.nome,
+          response.user.email);
     } else {
       // Mostra um diálogo sobre a resposta de erro.
       Get.defaultDialog(

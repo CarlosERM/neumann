@@ -18,19 +18,26 @@ class LoginController extends GetxController {
 
   Future<void> loginUser(String email, String senha) async {
     loading.value = true;
-    final response = await _loginService
-        .fetchLogin(LoginRequestModel(email: email, senha: senha));
+    final response = await _loginService.fetchLogin(
+      LoginRequestModel(
+        email: email,
+        senha: senha,
+      ),
+    );
 
     if (response != null) {
       /// Seta o isLogin para verdadeiro.
       _authManager.login(
-          response.user.token, response.user.id, response.user.nome);
+        response.user.token,
+        response.user.id,
+        response.user.nome,
+        response.user.email,
+      );
     } else {
       /// Mostra um diálogo sobre a resposta de erro.
       Get.defaultDialog(
           middleText: 'Erro no login.',
           textConfirm: 'OK',
-          confirmTextColor: Colors.white,
           onConfirm: () {
             Get.back();
           });
