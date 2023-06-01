@@ -3,7 +3,7 @@ import 'package:neumann_flutter/principal/publication/pub_service.dart';
 import 'pub_response_model.dart';
 import '../../services/authentication_manager.dart';
 
-class PubController extends GetxController {
+class PubController extends GetxController with StateMixin {
   late final PubService _pubService;
   AuthenticationManager am = AuthenticationManager();
 
@@ -14,8 +14,10 @@ class PubController extends GetxController {
   }
 
   Future<List<PubResponseModel>?> getAllPubs() async {
+    change(null, status: RxStatus.loading());
     String? token = am.retrieveToken();
     final response = await _pubService.fetchPubs(token);
+    change(null, status: RxStatus.success());
     return response;
   }
 }

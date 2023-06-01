@@ -34,19 +34,19 @@ class Button extends StatelessWidget {
     return ElevatedButton(
       style: Theme.of(context).elevatedButtonTheme.style,
       onPressed: () {
-        // if (formKey.currentState!.validate() && route.isNotEmpty) {
-        //   if (name == 'Registrar') {
-        //     rc.registerUser(
-        //       nic.nameController.text,
-        //       ie.emailController.text,
-        //       ip.passwordControllerOne.text,
-        //     );
-        //   } else if (name == 'Login') {
-        //     lc.loginUser(
-        //         ie.emailController.text, ip.passwordControllerOne.text);
-        //   }
-        // }
-        Get.toNamed(Routes.principal);
+        if (formKey.currentState!.validate() && route.isNotEmpty) {
+          if (name == 'Registrar') {
+            rc.registerUser(
+              nic.nameController.text,
+              ie.emailController.text,
+              ip.passwordControllerOne.text,
+            );
+          } else if (name == 'Login') {
+            lc.loginUser(
+                ie.emailController.text, ip.passwordControllerOne.text);
+          }
+        }
+        // Get.toNamed(Routes.principal);
       },
       child: Text(name),
     );
