@@ -24,47 +24,42 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
   @override
   Widget build(BuildContext context) {
-    return rc.loading.value
-        ? const CircularProgressIndicator()
-        : Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            "Crie sua conta",
+            style: Theme.of(context).textTheme.displayLarge,
+          ),
+          Text.rich(
+            TextSpan(
+              text: "Já possui uma conta?",
+              style: Theme.of(context).textTheme.bodyLarge,
               children: [
-                Text(
-                  "Crie sua conta",
-                  style: Theme.of(context).textTheme.displayLarge,
-                ),
-                Text.rich(
-                  TextSpan(
-                    text: "Já possui uma conta?",
-                    style: Theme.of(context).textTheme.bodyLarge,
-                    children: [
-                      TextSpan(
-                        text: " Login",
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 40),
-                ProfilePicture(),
-                const SizedBox(height: 40),
-                NameInput(name: "Nome completo"),
-                const SizedBox(height: 16),
-                EmailInput(),
-                const SizedBox(height: 16),
-                PasswordInput(tec: ip.passwordControllerOne),
-                const SizedBox(height: 30),
-                PasswordInput(tec: ip.passwordControllerSecond),
-                const SizedBox(height: 40),
-                Button(
-                    formKey: _formKey,
-                    name: "Registrar",
-                    route: Routes.principal),
-                const SizedBox(height: 100),
+                TextSpan(
+                  text: " Login",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                )
               ],
             ),
-          );
+          ),
+          const SizedBox(height: 40),
+          ProfilePicture(),
+          const SizedBox(height: 40),
+          NameInput(name: "Nome completo"),
+          const SizedBox(height: 16),
+          EmailInput(),
+          const SizedBox(height: 16),
+          PasswordInput(tec: ip.passwordControllerOne),
+          const SizedBox(height: 30),
+          PasswordInput(tec: ip.passwordControllerSecond),
+          const SizedBox(height: 40),
+          Button(formKey: _formKey, name: "Registrar", route: Routes.principal),
+          const SizedBox(height: 100),
+        ],
+      ),
+    );
   }
 }

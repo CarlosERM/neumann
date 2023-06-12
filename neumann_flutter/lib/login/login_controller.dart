@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neumann_flutter/login/login_request_model.dart';
 import '../services/authentication_manager.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'profile_options.dart';
 import 'profile_controller.dart';
 
+//ignore: must_be_immutable
 class Profile extends StatelessWidget {
   Profile({super.key});
   ProfileController pc = Get.put(ProfileController());
@@ -38,7 +38,7 @@ class Profile extends StatelessWidget {
               },
             ),
             Text(
-              "Coordenador",
+              "professor",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(
@@ -63,7 +63,8 @@ class Profile extends StatelessWidget {
                     ProfileOptions(
                         icon: const Icon(Icons.description),
                         name: "Termos de Serviço"),
-                    ProfileOptions(icon: Icon(Icons.logout), name: "Logout"),
+                    ProfileOptions(
+                        icon: const Icon(Icons.logout), name: "Logout"),
                   ],
                 ).toList(),
               ),

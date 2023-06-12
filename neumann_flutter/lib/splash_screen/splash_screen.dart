@@ -19,10 +19,11 @@ class SplashScreen extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return waitingView();
         } else {
-          if (snapshot.hasError)
+          if (snapshot.hasError) {
             return errorView(snapshot);
-          else
-            return OnBoard();
+          } else {
+            return const OnBoard();
+          }
         }
       },
     );
@@ -33,12 +34,12 @@ class SplashScreen extends StatelessWidget {
   }
 
   Scaffold waitingView() {
-    return Scaffold(
+    return const Scaffold(
         body: Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Padding(
             padding: EdgeInsets.all(16.0),
             child: CircularProgressIndicator(),

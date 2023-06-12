@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'password_input_controller.dart';
 
+//ignore: must_be_immutable
 class PasswordInput extends StatelessWidget {
   PasswordInput({super.key, required this.tec, this.login = false});
   bool login;

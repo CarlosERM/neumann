@@ -29,14 +29,11 @@ class ResearchProject extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                     leading: InkWell(
                       onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return Modal(
-                              title: "Sair",
-                              content: "Tem certeza que deseja sair?",
-                            );
-                          },
+                        Get.dialog(
+                          const Modal(
+                            title: "Sair",
+                            content: "Tem certeza que deseja sair?",
+                          ),
                         );
                       },
                       child: Icon(
@@ -48,14 +45,11 @@ class ResearchProject extends StatelessWidget {
                     actions: <Widget>[
                       IconButton(
                         onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Modal(
-                                title: "Editar",
-                                content: "Tem certeza que deseja editar?",
-                              );
-                            },
+                          Get.dialog(
+                            const Modal(
+                              title: "Editar",
+                              content: "Tem certeza que deseja editar?",
+                            ),
                           );
                           Get.toNamed(Routes.registrationResearchProject);
                         },
@@ -85,9 +79,9 @@ class ResearchProject extends StatelessWidget {
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       const SizedBox(height: 30.0),
-                      ProjectMember(name: "Carlos Eduardo Rocha Miranda"),
-                      ProjectMember(name: "Carlos Eduardo Rocha Miranda"),
-                      ProjectMember(name: "Carlos Eduardo Rocha Miranda"),
+                      const ProjectMember(name: "Carlos Eduardo Rocha Miranda"),
+                      const ProjectMember(name: "Carlos Eduardo Rocha Miranda"),
+                      const ProjectMember(name: "Carlos Eduardo Rocha Miranda"),
                     ]),
               ),
             ],

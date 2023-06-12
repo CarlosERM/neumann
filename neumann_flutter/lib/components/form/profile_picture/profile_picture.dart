@@ -9,7 +9,7 @@ class ProfilePicture extends StatelessWidget {
   final ImageController ic = Get.put(
     ImageController(),
   );
-  final type;
+  final String? type;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

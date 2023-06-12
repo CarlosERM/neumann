@@ -5,6 +5,9 @@ import 'package:get/get_connect/http/src/status/http_status.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:neumann_flutter/home/create_pub_request_model.dart';
 import 'package:neumann_flutter/home/create_pub_response_model.dart';
+import 'package:neumann_flutter/home/update_pub_response_model.dart';
+
+import 'update_pub_request_model.dart';
 
 class MessageService extends GetConnect {
   final box = GetStorage();
@@ -18,6 +21,29 @@ class MessageService extends GetConnect {
     });
     if (response.statusCode == HttpStatus.ok) {
       return CreatePubResponseModel.fromJson(response.body);
+    } else {
+      return null;
+    }
+  }
+
+  Future<UpdatePubResponseModel?> updatePub(
+      UpdatePubRequestModel model, token, id) async {
+    final response = await patch(pubUrl + id, model.toJson(), headers: {
+      "Authorization": token!,
+    });
+    if (response.statusCode == HttpStatus.ok) {
+      return UpdatePubResponseModel.fromJson(response.body);
+    } else {
+      return null;
+    }
+  }
+
+  Future<UpdatePubResponseModel?> deletePub(token, id) async {
+    final response = await delete(pubUrl + id, headers: {
+      "Authorization": token!,
+    });
+    if (response.statusCode == HttpStatus.ok) {
+      return UpdatePubResponseModel.fromJson(response.body);
     } else {
       return null;
     }

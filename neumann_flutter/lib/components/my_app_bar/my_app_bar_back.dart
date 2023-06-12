@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 
 import '../modal/modal.dart';
 
-class MyAppBarBack extends StatelessWidget with PreferredSizeWidget {
-  MyAppBarBack({
+class MyAppBarBack extends StatelessWidget implements PreferredSizeWidget {
+  const MyAppBarBack({
     super.key,
     required this.name,
     required this.important,
@@ -34,14 +34,11 @@ class MyAppBarBack extends StatelessWidget with PreferredSizeWidget {
         ),
         onPressed: () {
           if (important) {
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return Modal(
-                  title: "Sair",
-                  content: "Tem certeza que deseja sair?",
-                );
-              },
+            Get.dialog(
+              const Modal(
+                title: "Sair",
+                content: "Tem certeza que deseja sair?",
+              ),
             );
           } else {
             Get.back();

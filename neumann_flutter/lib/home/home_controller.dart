@@ -6,6 +6,7 @@ class HomeController extends GetxController {
   String nome = '';
   Future<String> getUsername() async {
     nome = await box.read('nome');
+
     return nome;
   }
 }

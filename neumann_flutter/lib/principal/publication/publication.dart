@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'publication_controller.dart';
+
+//ignore: must_be_immutable
 class Publication extends StatelessWidget {
-  const Publication({super.key, required this.conteudo, required this.autor});
+  Publication(
+      {super.key,
+      required this.id,
+      required this.conteudo,
+      required this.autor});
+  final String id;
   final String conteudo;
   final String autor;
+  PublicationController mc = Get.put(PublicationController());
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -82,7 +92,7 @@ class Publication extends StatelessWidget {
                           size: 16,
                         ),
                         onTap: () {
-                          print("Edit");
+                          mc.editPub(id, conteudo);
                         },
                       ),
                       const SizedBox(
@@ -113,7 +123,7 @@ class Publication extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
       ],
     );
   }

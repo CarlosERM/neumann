@@ -14,18 +14,18 @@ class ResearchProjects extends StatelessWidget {
         onPressed: () {
           Get.toNamed(Routes.registrationResearchProject);
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: SingleChildScrollView(
         child: Container(
           color: Theme.of(context).colorScheme.background,
-          child: Column(
+          child: const Column(
             children: [
               MyAppBar(),
               Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(16.0),
                   child: Column(
-                    children: const [
+                    children: [
                       MyCard(),
                       MyCard(),
                       MyCard(),

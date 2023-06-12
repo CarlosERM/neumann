@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:neumann_flutter/components/modal/modal.dart';
 import '../services/authentication_manager.dart';
 import 'register_request_model.dart';
 import 'register_service.dart';
@@ -7,7 +7,6 @@ import 'register_service.dart';
 class RegisterController extends GetxController with StateMixin {
   late final RegisterService _registerService;
   late final AuthenticationManager _authManager;
-  final loading = false.obs;
   @override
   void onInit() {
     super.onInit();
@@ -17,7 +16,6 @@ class RegisterController extends GetxController with StateMixin {
 
   Future<void> registerUser(String nome, String email, String senha) async {
     // Faz o status de Carregamento.~
-    loading.value = true;
     final response = await _registerService.fetchRegister(
         RegisterRequestModel(nome: nome, email: email, senha: senha));
     if (response != null) {
@@ -26,14 +24,12 @@ class RegisterController extends GetxController with StateMixin {
           response.user.email);
     } else {
       // Mostra um diálogo sobre a resposta de erro.
-      Get.defaultDialog(
-          middleText: 'Erro de registro.',
-          textConfirm: 'OK',
-          confirmTextColor: Colors.white,
-          onConfirm: () {
-            Get.back();
-          });
+      Get.dialog(
+        const Modal(
+          title: "Registro",
+          content: "Ocorreu algum erro durante o registro. Deseja sair?",
+        ),
+      );
     }
-    loading.value = false;
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../util/routes.dart';
 import '../components/form/button.dart';
 import '../components/form/verification_code_input.dart';
@@ -13,7 +12,7 @@ class ForgotPasswordTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.secondary,
-      appBar: MyAppBarBack(
+      appBar: const MyAppBarBack(
         name: "Senha",
         important: false,
       ),
@@ -31,8 +30,8 @@ class ForgotPasswordTwo extends StatelessWidget {
                     style: Theme.of(context).textTheme.displayMedium,
                   ),
                   const SizedBox(height: 30.0),
-                  Row(
-                    children: const [
+                  const Row(
+                    children: [
                       VerificationCodeInput(id: 1),
                       SizedBox(width: 10.0),
                       VerificationCodeInput(id: 2),

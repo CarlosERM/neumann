@@ -4,10 +4,13 @@ import 'package:get_storage/get_storage.dart';
 import 'package:neumann_flutter/home/create_pub_request_model.dart';
 import '../services/authentication_manager.dart';
 import './message_service.dart';
+import 'update_pub_request_model.dart';
 
 class MessageController extends GetxController {
   final box = GetStorage();
   String nome = '';
+  String id = '';
+  bool editarPub = false;
   TextEditingController tec = TextEditingController();
   AuthenticationManager am = AuthenticationManager();
   MessageService ms = MessageService();
@@ -23,5 +26,18 @@ class MessageController extends GetxController {
       token,
     );
     tec.text = '';
+  }
+
+  Future<void> updatePub() async {
+    String? token = am.retrieveToken();
+    await ms.updatePub(
+      UpdatePubRequestModel(
+        conteudo: tec.text,
+      ),
+      token,
+      id,
+    );
+    tec.text = '';
+    editarPub = false;
   }
 }

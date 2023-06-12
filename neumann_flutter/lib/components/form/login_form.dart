@@ -24,7 +24,7 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return lc.loading.value
-        ? CircularProgressIndicator()
+        ? const CircularProgressIndicator()
         : Form(
             key: _formKey,
             child: SingleChildScrollView(

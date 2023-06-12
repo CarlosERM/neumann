@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../components/form/registration_form.dart';
 import '../components/modal/modal.dart';
 
@@ -17,14 +18,11 @@ class Register extends StatelessWidget {
               AppBar(
                 leading: InkWell(
                   onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return Modal(
-                          title: "Sair",
-                          content: "Tem certeza que deseja sair?",
-                        );
-                      },
+                    Get.dialog(
+                      const Modal(
+                        title: "Sair",
+                        content: "Tem certeza que deseja sair?",
+                      ),
                     );
                   },
                   child: Icon(

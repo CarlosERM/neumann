@@ -9,7 +9,7 @@ import '../util/routes.dart';
 import './edit_profile_controller.dart';
 
 class EditProfile extends StatefulWidget {
-  EditProfile({super.key});
+  const EditProfile({super.key});
 
   @override
   State<EditProfile> createState() => _EditProfileState();
@@ -31,7 +31,7 @@ class _EditProfileState extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBarBack(important: true, name: "Senha"),
+      appBar: const MyAppBarBack(important: true, name: "Senha"),
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,

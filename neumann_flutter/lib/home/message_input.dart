@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neumann_flutter/home/message_controller.dart';
 
+//ignore: must_be_immutable
 class MessageInput extends StatelessWidget {
   MessageInput({super.key});
   MessageController mc = Get.put(MessageController());
@@ -59,7 +60,11 @@ class MessageInput extends StatelessWidget {
           Expanded(
             child: ElevatedButton(
               onPressed: () {
-                mc.createPub();
+                if (mc.editarPub) {
+                  mc.updatePub();
+                } else {
+                  mc.createPub();
+                }
               },
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(

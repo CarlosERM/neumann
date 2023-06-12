@@ -101,7 +101,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: Routes.editProfile,
-          page: () => EditProfile(),
+          page: () => const EditProfile(),
         ),
       ],
     );

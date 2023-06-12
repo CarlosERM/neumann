@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:neumann_flutter/components/form/button.dart';
 import 'package:neumann_flutter/components/form/description_input.dart';
 import 'package:neumann_flutter/util/routes.dart';

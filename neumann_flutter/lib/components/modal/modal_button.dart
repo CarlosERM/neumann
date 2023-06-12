@@ -9,7 +9,7 @@ class ModalButton extends StatelessWidget {
     return TextButton(
       style: name == "Sim"
           ? TextButton.styleFrom(
-              backgroundColor: Color.fromRGBO(199, 199, 199, 1.000),
+              backgroundColor: const Color.fromRGBO(199, 199, 199, 1.000),
               fixedSize: const Size(43, 40),
             )
           : Theme.of(context).textButtonTheme.style,

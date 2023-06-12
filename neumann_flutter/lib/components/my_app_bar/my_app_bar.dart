@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../form/profile_picture/image_controller.dart';
 
-class MyAppBar extends StatelessWidget with PreferredSizeWidget {
-  MyAppBar({super.key, this.username = ''});
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const MyAppBar({super.key, this.username = ''});
   final String username;
 
   @override

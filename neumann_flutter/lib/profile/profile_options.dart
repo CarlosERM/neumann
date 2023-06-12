@@ -8,7 +8,7 @@ class ProfileOptions extends StatelessWidget {
   ProfileOptions({super.key, required this.icon, required this.name});
   final Icon icon;
   final String name;
-  final AuthenticationManager auth_manager = AuthenticationManager();
+  final AuthenticationManager authManager = AuthenticationManager();
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -17,7 +17,7 @@ class ProfileOptions extends StatelessWidget {
           if (name == 'Editar Perfil') {
             Get.toNamed(Routes.editProfile);
           } else if (name == 'Logout') {
-            auth_manager.logOut();
+            authManager.logOut();
           }
         },
         minLeadingWidth: 10,

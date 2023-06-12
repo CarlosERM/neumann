@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//ignore: must_be_immutable
 class ResearchGroupTile extends StatelessWidget {
   ResearchGroupTile({super.key, required this.title, required this.subtitle});
   String title;

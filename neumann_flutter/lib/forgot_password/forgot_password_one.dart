@@ -12,7 +12,7 @@ class ForgotPasswordOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.secondary,
-      appBar: MyAppBarBack(important: true, name: "Senha"),
+      appBar: const MyAppBarBack(important: true, name: "Senha"),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
         child: Form(

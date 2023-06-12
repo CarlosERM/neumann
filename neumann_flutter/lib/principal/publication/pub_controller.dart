@@ -14,10 +14,8 @@ class PubController extends GetxController with StateMixin {
   }
 
   Future<List<PubResponseModel>?> getAllPubs() async {
-    change(null, status: RxStatus.loading());
     String? token = am.retrieveToken();
     final response = await _pubService.fetchPubs(token);
-    change(null, status: RxStatus.success());
     return response;
   }
 }

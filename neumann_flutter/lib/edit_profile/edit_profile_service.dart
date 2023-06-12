@@ -5,7 +5,6 @@ import 'package:get/get_connect/http/src/status/http_status.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:neumann_flutter/edit_profile/edit_profile_request_model.dart';
 import 'package:neumann_flutter/edit_profile/edit_profile_response_model.dart';
-import 'package:neumann_flutter/principal/publication/pub_response_model.dart';
 
 class EditProfileService extends GetConnect {
   final box = GetStorage();

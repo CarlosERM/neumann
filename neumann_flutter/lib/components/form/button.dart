@@ -5,7 +5,6 @@ import 'email_input/email_input_controller.dart';
 import 'name_input/name_input_controller.dart';
 import '../../register/register_controller.dart';
 import '../../login/login_controller.dart';
-import '../../util/routes.dart';
 import 'password_input/password_input_controller.dart';
 
 class Button extends StatelessWidget {
@@ -52,7 +51,6 @@ class Button extends StatelessWidget {
           } else if (name == 'Salvar') {
             epc.editProfile();
           }
-          print(name);
         }
         // Get.toNamed(Routes.principal);
       },

@@ -9,10 +9,10 @@ class OnBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthenticationManager _authManager = Get.find();
+    AuthenticationManager authManager = Get.find();
 
     return Obx(() {
-      return _authManager.isLogged.value ? Principal() : const Login();
+      return authManager.isLogged.value ? Principal() : const Login();
     });
   }
 }

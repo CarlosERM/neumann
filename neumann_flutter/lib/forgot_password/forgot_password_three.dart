@@ -11,7 +11,7 @@ class ForgotPasswordThree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.secondary,
-      appBar: MyAppBarBack(name: "Senha", important: true),
+      appBar: const MyAppBarBack(name: "Senha", important: true),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
         child: Form(

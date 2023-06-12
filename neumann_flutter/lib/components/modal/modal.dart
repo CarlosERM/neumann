@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'modal_button.dart';
 
 class Modal extends StatelessWidget {
-  Modal({super.key, required this.title, required this.content});
+  const Modal({super.key, required this.title, required this.content});
   final String title;
   final String content;
   @override
