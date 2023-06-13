@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 
 import '../../components/form/description_input/description_input_controller.dart';
 import '../../components/form/name_input/name_input_controller.dart';
+import '../../participante_model.dart';
 import '../get_research_projects_response.dart';
 import '../research_projects_controller.dart';
 

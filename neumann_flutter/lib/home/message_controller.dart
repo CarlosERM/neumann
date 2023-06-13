@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:neumann_flutter/home/create_pub_request_model.dart';
+import '../principal/publication/pub_controller.dart';
 import '../services/authentication_manager.dart';
 import './message_service.dart';
 import 'create_pub_response_model.dart';
@@ -15,6 +16,8 @@ class MessageController extends GetxController {
   bool editarPub = false;
   TextEditingController tec = TextEditingController();
   AuthenticationManager am = AuthenticationManager();
+  final PubController pc = Get.put(PubController());
+
   MessageService ms = MessageService();
   Rx<UpdatePubResponseModel> response = UpdatePubResponseModel(msg: "").obs;
   Future<String> createPub() async {
@@ -29,6 +32,7 @@ class MessageController extends GetxController {
         token,
       );
       tec.text = '';
+      await pc.getAllPubs();
       return response.message;
     }
     return "Adicione valores válidos!";
@@ -46,6 +50,7 @@ class MessageController extends GetxController {
       );
       tec.text = '';
       editarPub = false;
+      await pc.getAllPubs();
       return response.value.msg;
     }
 

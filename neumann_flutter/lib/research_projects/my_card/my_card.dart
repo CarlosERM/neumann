@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neumann_flutter/util/routes.dart';
 
-import 'get_research_projects_response.dart';
+import '../../participante_model.dart';
+import 'my_card_controller.dart';
 
 class MyCard extends StatelessWidget {
-  const MyCard({
+  MyCard({
     super.key,
     required this.id,
     required this.title,
@@ -16,6 +17,7 @@ class MyCard extends StatelessWidget {
   final String title;
   final String description;
   final List<Participante> members;
+  final MyCardController rc = Get.put(MyCardController());
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +96,9 @@ class MyCard extends StatelessWidget {
                               ),
                               onPressed: () {
                                 data.value = !data.value;
+
+                                rc.toggleProject(
+                                    id, title, description, members);
                               },
                               child: Text(
                                 data.value ? "Participando" : "Participar",

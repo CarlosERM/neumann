@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../components/my_app_bar/my_app_bar.dart';
 import '../util/routes.dart';
 import 'get_research_projects_response.dart';
-import 'my_card.dart';
+import 'my_card/my_card.dart';
 import 'research_projects_controller.dart';
 
 class ResearchProjects extends StatelessWidget {
@@ -27,48 +27,22 @@ class ResearchProjects extends StatelessWidget {
               const MyAppBar(),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: FutureBuilder<List<GetResearchProjectsResponse>>(
-                  future: rpc.getAllResearchProjects(),
-                  builder: (BuildContext context, AsyncSnapshot snapshot) {
-                    if (!snapshot.hasData) {
-                      return const Column(
-                        children: [
-                          SizedBox(height: 32),
-                          Center(child: CircularProgressIndicator()),
-                        ],
+                child: Obx(
+                  () => ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: rpc.projects.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      var project = rpc.projects[index];
+                      print(project.id);
+                      return MyCard(
+                        id: project.id,
+                        title: project.nome,
+                        description: project.descricao,
+                        members: project.participantes,
                       );
-                    } else if (snapshot.hasError) {
-                      return const Text("Algum erro aconteceu");
-                    } else {
-                      if (snapshot.data.length == 0) {
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            const SizedBox(height: 32),
-                            Center(
-                              child: Text(
-                                "Não existe nenhum projeto de pesquisa.",
-                                style: Theme.of(context).textTheme.bodyLarge,
-                              ),
-                            ),
-                          ],
-                        );
-                      }
-                      return ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: snapshot.data.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return MyCard(
-                            id: snapshot.data[index].id,
-                            title: snapshot.data[index].nome,
-                            description: snapshot.data[index].descricao,
-                            members: snapshot.data[index].participantes,
-                          );
-                        },
-                      );
-                    }
-                  },
+                    },
+                  ),
                 ),
               )
             ],
@@ -78,3 +52,50 @@ class ResearchProjects extends StatelessWidget {
     );
   }
 }
+
+
+
+
+//  FutureBuilder<List<GetResearchProjectsResponse>>(
+//                   future: rpc.getAllResearchProjects(),
+//                   builder: (BuildContext context, AsyncSnapshot snapshot) {
+//                     if (!snapshot.hasData) {
+//                       return const Column(
+//                         children: [
+//                           SizedBox(height: 32),
+//                           Center(child: CircularProgressIndicator()),
+//                         ],
+//                       );
+//                     } else if (snapshot.hasError) {
+//                       return const Text("Algum erro aconteceu");
+//                     } else {
+//                       if (snapshot.data.length == 0) {
+//                         return Column(
+//                           crossAxisAlignment: CrossAxisAlignment.stretch,
+//                           children: [
+//                             const SizedBox(height: 32),
+//                             Center(
+//                               child: Text(
+//                                 "Não existe nenhum projeto de pesquisa.",
+//                                 style: Theme.of(context).textTheme.bodyLarge,
+//                               ),
+//                             ),
+//                           ],
+//                         );
+//                       }
+//                       return ListView.builder(
+//                         physics: const NeverScrollableScrollPhysics(),
+//                         shrinkWrap: true,
+//                         itemCount: snapshot.data.length,
+//                         itemBuilder: (BuildContext context, int index) {
+//                           return MyCard(
+//                             id: snapshot.data[index].id,
+//                             title: snapshot.data[index].nome,
+//                             description: snapshot.data[index].descricao,
+//                             members: snapshot.data[index].participantes,
+//                           );
+//                         },
+//                       );
+//                     }
+//                   },
+//                 ),

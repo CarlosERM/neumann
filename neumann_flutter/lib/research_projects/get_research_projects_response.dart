@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import '../participante_model.dart';
+
 List<GetResearchProjectsResponse> getResearchProjectsResponseFromJson(
         String str) =>
     List<GetResearchProjectsResponse>.from(
@@ -45,25 +47,5 @@ class GetResearchProjectsResponse {
         "participantes":
             List<dynamic>.from(participantes.map((x) => x.toJson())),
         "__v": v,
-      };
-}
-
-class Participante {
-  String participante;
-  String id;
-
-  Participante({
-    required this.participante,
-    required this.id,
-  });
-
-  factory Participante.fromJson(Map<String, dynamic> json) => Participante(
-        participante: json["participante"],
-        id: json["_id"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "participante": participante,
-        "_id": id,
       };
 }

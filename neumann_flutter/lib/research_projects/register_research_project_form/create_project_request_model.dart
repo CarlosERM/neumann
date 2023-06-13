@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import '../../participante_model.dart';
+
 CreateProjectRequestModel createProjectRequestModelFromJson(String str) =>
     CreateProjectRequestModel.fromJson(json.decode(str));
 
@@ -34,21 +36,5 @@ class CreateProjectRequestModel {
         "descricao": descricao,
         "participantes":
             List<dynamic>.from(participantes.map((x) => x.toJson())),
-      };
-}
-
-class Participante {
-  String participante;
-
-  Participante({
-    required this.participante,
-  });
-
-  factory Participante.fromJson(Map<String, dynamic> json) => Participante(
-        participante: json["participante"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "participante": participante,
       };
 }
