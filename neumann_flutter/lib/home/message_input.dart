@@ -59,11 +59,52 @@ class MessageInput extends StatelessWidget {
           ),
           Expanded(
             child: ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 if (mc.editarPub) {
-                  mc.updatePub();
+                  String message = await mc.updatePub();
+                  print(message);
+                  Get.showSnackbar(
+                    GetSnackBar(
+                      titleText: Text("Editar",
+                          style: Theme.of(context).textTheme.labelLarge),
+                      messageText: Text(message,
+                          style: Theme.of(context).textTheme.bodySmall),
+                      duration: const Duration(seconds: 3),
+                      snackPosition: SnackPosition.TOP,
+                      backgroundColor: Theme.of(context).colorScheme.background,
+                      boxShadows: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                      margin: const EdgeInsets.all(12.0),
+                    ),
+                  );
                 } else {
-                  mc.createPub();
+                  String message = await mc.createPub();
+                  Get.showSnackbar(
+                    GetSnackBar(
+                      titleText: Text("Criar",
+                          style: Theme.of(context).textTheme.labelLarge),
+                      messageText: Text(message,
+                          style: Theme.of(context).textTheme.bodySmall),
+                      duration: const Duration(seconds: 3),
+                      snackPosition: SnackPosition.TOP,
+                      backgroundColor: Theme.of(context).colorScheme.background,
+                      boxShadows: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                      margin: const EdgeInsets.all(12.0),
+                    ),
+                  );
                 }
               },
               style: ButtonStyle(

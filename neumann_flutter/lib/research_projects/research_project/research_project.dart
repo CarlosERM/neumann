@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neumann_flutter/util/routes.dart';
-import '../components/modal/modal.dart';
+import '../../components/form/name_input/name_input_controller.dart';
+import '../../components/modal/modal.dart';
 import 'project_member/project_member.dart';
+import 'research_project_controller.dart';
 
 class ResearchProject extends StatelessWidget {
-  const ResearchProject({super.key});
+  ResearchProject({super.key});
+  ResearchProjectController rpc = Get.put(ResearchProjectController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,13 +49,14 @@ class ResearchProject extends StatelessWidget {
                     actions: <Widget>[
                       IconButton(
                         onPressed: () {
-                          Get.dialog(
-                            const Modal(
-                              title: "Editar",
-                              content: "Tem certeza que deseja editar?",
-                            ),
-                          );
-                          Get.toNamed(Routes.registrationResearchProject);
+                          // Get.dialog(
+                          //   const Modal(
+                          //     title: "Editar",
+                          //     content: "Tem certeza que deseja editar?",
+                          //   ),
+                          // );
+                          rpc.sendDataToEdit();
+                          Get.toNamed(Routes.editResearchProject);
                         },
                         icon: Icon(
                           Icons.edit,
@@ -69,19 +74,24 @@ class ResearchProject extends StatelessWidget {
                     children: [
                       const SizedBox(height: 30.0),
                       Text(
-                        "Iniciação Científica",
+                        rpc.title,
                         style: Theme.of(context).textTheme.displayLarge,
                         textAlign: TextAlign.left,
                       ),
                       const SizedBox(height: 10.0),
                       Text(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                        rpc.description,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                       const SizedBox(height: 30.0),
-                      const ProjectMember(name: "Carlos Eduardo Rocha Miranda"),
-                      const ProjectMember(name: "Carlos Eduardo Rocha Miranda"),
-                      const ProjectMember(name: "Carlos Eduardo Rocha Miranda"),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: rpc.members.length,
+                        itemBuilder: (context, index) {
+                          final member = rpc.members[index];
+                          return ProjectMember(name: member.participante);
+                        },
+                      ),
                     ]),
               ),
             ],

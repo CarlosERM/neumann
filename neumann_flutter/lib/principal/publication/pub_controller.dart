@@ -6,16 +6,17 @@ import '../../services/authentication_manager.dart';
 class PubController extends GetxController with StateMixin {
   late final PubService _pubService;
   AuthenticationManager am = AuthenticationManager();
-
+  late RxList<PubResponseModel> publications = <PubResponseModel>[].obs;
   @override
   void onInit() {
     super.onInit();
     _pubService = Get.put(PubService());
   }
 
-  Future<List<PubResponseModel>?> getAllPubs() async {
+  Future<List> getAllPubs() async {
     String? token = am.retrieveToken();
-    final response = await _pubService.fetchPubs(token);
-    return response;
+    publications.value = await _pubService.fetchPubs(token);
+    publications.refresh();
+    return publications.value;
   }
 }

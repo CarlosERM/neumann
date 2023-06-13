@@ -24,7 +24,7 @@ class Principal extends StatelessWidget {
           index: nb.selectedIndex.value,
           children: [
             Home(),
-            const ResearchProjects(),
+            ResearchProjects(),
             Profile(),
           ],
         ),

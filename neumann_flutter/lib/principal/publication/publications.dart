@@ -10,7 +10,7 @@ class Publications extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<PubResponseModel>?>(
+    return FutureBuilder<List>(
       future: pc.getAllPubs(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (!snapshot.hasData) {

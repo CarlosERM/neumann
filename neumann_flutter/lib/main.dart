@@ -8,7 +8,7 @@ import 'forgot_password/forgot_password_one.dart';
 import 'forgot_password/forgot_password_three.dart';
 import 'forgot_password/forgot_password_two.dart';
 import 'registration_research_project/registration_research_project.dart';
-import 'research_project/research_project.dart';
+import 'research_projects/research_project/research_project.dart';
 import 'splash_screen/splash_screen.dart';
 import 'principal/principal.dart';
 import 'login/login.dart';
@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: Routes.researchProject,
-          page: () => const ResearchProject(),
+          page: () => ResearchProject(),
           transition: Transition.downToUp,
           transitionDuration: const Duration(
             milliseconds: 200,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../edit_profile/edit_profile_controller.dart';
+import '../../research_projects/research_projects_controller.dart';
+import 'description_input/description_input_controller.dart';
 import 'email_input/email_input_controller.dart';
 import 'name_input/name_input_controller.dart';
 import '../../register/register_controller.dart';
@@ -27,13 +29,16 @@ class Button extends StatelessWidget {
   final EmailInputController ie = Get.put(
     EmailInputController(),
   );
+  DescriptionInputController dic = Get.put(DescriptionInputController());
+
   final PasswordInputController ip = Get.put(PasswordInputController());
+  final ResearchProjectsController rpc = Get.put(ResearchProjectsController());
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: Theme.of(context).elevatedButtonTheme.style,
-      onPressed: () {
+      onPressed: () async {
         if (formKey.currentState!.validate() && route.isNotEmpty) {
           if (name == 'Registrar') {
             rc.registerUser(
@@ -48,7 +53,30 @@ class Button extends StatelessWidget {
             );
           } else if (name == 'Salvar') {
             epc.editProfile();
-          } else if (name == 'Salvar') {
+          } else if (name == 'Cadastrar Projeto') {
+            String message = await rpc.createProject(
+                nic.nameController.text, dic.descriptionController.text, []);
+            Get.showSnackbar(
+              GetSnackBar(
+                titleText: Text("Criar projeto",
+                    style: Theme.of(context).textTheme.labelLarge),
+                messageText:
+                    Text(message, style: Theme.of(context).textTheme.bodySmall),
+                duration: const Duration(seconds: 3),
+                snackPosition: SnackPosition.TOP,
+                backgroundColor: Theme.of(context).colorScheme.background,
+                boxShadows: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+                margin: const EdgeInsets.all(12.0),
+              ),
+            );
+          } else if (name == 'Editar Projeto') {
             epc.editProfile();
           }
         }

@@ -14,19 +14,20 @@ class MessageService extends GetConnect {
   final String pubUrl =
       "${dotenv.get('URL', fallback: 'API_URL not found')}pub/";
 
-  Future<CreatePubResponseModel?> createPub(
+  Future<CreatePubResponseModel> createPub(
       CreatePubRequestModel model, token) async {
     final response = await post(pubUrl, model.toJson(), headers: {
       "Authorization": token!,
     });
-    if (response.statusCode == HttpStatus.ok) {
+    if (response.statusCode == HttpStatus.created) {
       return CreatePubResponseModel.fromJson(response.body);
     } else {
-      return null;
+      return CreatePubResponseModel(
+          message: "Houve um erro na criação da publicação.");
     }
   }
 
-  Future<UpdatePubResponseModel?> updatePub(
+  Future<UpdatePubResponseModel> updatePub(
       UpdatePubRequestModel model, token, id) async {
     final response = await patch(pubUrl + id, model.toJson(), headers: {
       "Authorization": token!,
@@ -34,18 +35,8 @@ class MessageService extends GetConnect {
     if (response.statusCode == HttpStatus.ok) {
       return UpdatePubResponseModel.fromJson(response.body);
     } else {
-      return null;
-    }
-  }
-
-  Future<UpdatePubResponseModel?> deletePub(token, id) async {
-    final response = await delete(pubUrl + id, headers: {
-      "Authorization": token!,
-    });
-    if (response.statusCode == HttpStatus.ok) {
-      return UpdatePubResponseModel.fromJson(response.body);
-    } else {
-      return null;
+      return UpdatePubResponseModel(
+          msg: "Ocorreu um erro na atualização dos dados.");
     }
   }
 }

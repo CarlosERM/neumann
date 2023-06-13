@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'description_input_controller.dart';
 
 class DescriptionInput extends StatelessWidget {
-  const DescriptionInput({super.key, required this.name});
+  DescriptionInput({super.key, required this.name});
   final String name;
+
+  DescriptionInputController dic = Get.put(DescriptionInputController());
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,6 +19,7 @@ class DescriptionInput extends StatelessWidget {
         ),
         const SizedBox(height: 5.0),
         TextFormField(
+          controller: dic.descriptionController,
           keyboardType: TextInputType.multiline,
           minLines: 5,
           maxLines: 5,

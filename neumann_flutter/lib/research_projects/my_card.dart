@@ -2,8 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neumann_flutter/util/routes.dart';
 
+import 'get_research_projects_response.dart';
+
 class MyCard extends StatelessWidget {
-  const MyCard({super.key});
+  const MyCard({
+    super.key,
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.members,
+  });
+  final String id;
+  final String title;
+  final String description;
+  final List<Participante> members;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +34,15 @@ class MyCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.researchProject);
+          Get.toNamed(
+            Routes.researchProject,
+            arguments: [
+              {"id": id},
+              {"title": title},
+              {"description": description},
+              {"members": members},
+            ],
+          );
         },
         child: Card(
           shape: RoundedRectangleBorder(
@@ -36,15 +56,16 @@ class MyCard extends StatelessWidget {
                 ListTile(
                   leading: const CircleAvatar(),
                   title: Text(
-                    'Iniciação Científica',
+                    title,
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
                   subtitle: Column(
                     children: [
                       const SizedBox(height: 10),
                       Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        description,
                         style: Theme.of(context).textTheme.bodySmall,
+                        maxLines: 3,
                       ),
                       const SizedBox(height: 10),
                       Row(

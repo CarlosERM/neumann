@@ -12,22 +12,18 @@ String updatePubResponseModelToJson(UpdatePubResponseModel data) =>
 
 class UpdatePubResponseModel {
   String msg;
-  Pub pub;
 
   UpdatePubResponseModel({
     required this.msg,
-    required this.pub,
   });
 
   factory UpdatePubResponseModel.fromJson(Map<String, dynamic> json) =>
       UpdatePubResponseModel(
         msg: json["msg"],
-        pub: Pub.fromJson(json["pub"]),
       );
 
   Map<String, dynamic> toJson() => {
         "msg": msg,
-        "pub": pub.toJson(),
       };
 }
 

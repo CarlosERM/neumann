@@ -13,7 +13,7 @@ class Publication extends StatelessWidget {
   final String id;
   final String conteudo;
   final String autor;
-  PublicationController mc = Get.put(PublicationController());
+  PublicationController pc = Get.put(PublicationController());
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,7 @@ class Publication extends StatelessWidget {
                           size: 16,
                         ),
                         onTap: () {
-                          mc.editPub(id, conteudo);
+                          pc.editPub(id, conteudo);
                         },
                       ),
                       const SizedBox(
@@ -109,8 +109,28 @@ class Publication extends StatelessWidget {
                     ],
                   ),
                   IconButton(
-                    onPressed: () {
-                      print("Delete");
+                    onPressed: () async {
+                      String message = await pc.deletePub(id);
+                      Get.showSnackbar(
+                        GetSnackBar(
+                            titleText: Text("Remover",
+                                style: Theme.of(context).textTheme.labelLarge),
+                            messageText: Text(message,
+                                style: Theme.of(context).textTheme.bodySmall),
+                            duration: const Duration(seconds: 3),
+                            snackPosition: SnackPosition.TOP,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.background,
+                            boxShadows: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                            margin: const EdgeInsets.all(12.0)),
+                      );
                     },
                     icon: const Icon(
                       Icons.delete,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:neumann_flutter/components/form/register_research_project_form/register_research_project_form.dart';
+import 'package:neumann_flutter/research_projects/register_research_project_form/research_project_form.dart';
 import '../components/modal/modal.dart';
 
 class RegistrationResearchProject extends StatelessWidget {
@@ -36,7 +36,7 @@ class RegistrationResearchProject extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-                child: RegistrationResearchProjectForm(name: name),
+                child: ResearchProjectForm(name: name),
               ),
             ],
           ),

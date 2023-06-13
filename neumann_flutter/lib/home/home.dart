@@ -21,47 +21,41 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          color: Theme.of(context).colorScheme.background,
-          child: Column(
-            children: [
-              FutureBuilder(
-                future: hc.getUsername(),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return MyAppBar(
-                      username: snapshot.data!,
-                    );
-                  } else {
-                    return const CircularProgressIndicator();
-                  }
-                },
+    return SingleChildScrollView(
+      child: Container(
+        color: Theme.of(context).colorScheme.background,
+        child: Column(
+          children: [
+            FutureBuilder(
+              future: hc.getUsername(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return MyAppBar(
+                    username: snapshot.data!,
+                  );
+                } else {
+                  return const CircularProgressIndicator();
+                }
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  ResearchGroupTile(
+                    title: "GEDAIA",
+                    subtitle:
+                        "Grupo de Excelência em Dados, Automação e Inteligência Artificial.",
+                  ),
+                  const SizedBox(height: 30),
+                  MessageInput(),
+                  Publications(),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    ResearchGroupTile(
-                      title: "GEDAIA",
-                      subtitle:
-                          "Grupo de Excelência em Dados, Automação e Inteligência Artificial.",
-                    ),
-                    const SizedBox(height: 30),
-                    MessageInput(),
-                    Publications(),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
-  }
-
-  Future<void> refreshPubs() async {
-    await pc.getAllPubs();
   }
 }
