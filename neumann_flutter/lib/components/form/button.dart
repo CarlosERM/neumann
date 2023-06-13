@@ -30,7 +30,7 @@ class Button extends StatelessWidget {
     EmailInputController(),
   );
   DescriptionInputController dic = Get.put(DescriptionInputController());
-
+  late String? message;
   final PasswordInputController ip = Get.put(PasswordInputController());
   final ResearchProjectsController rpc = Get.put(ResearchProjectsController());
 
@@ -47,21 +47,40 @@ class Button extends StatelessWidget {
               ip.passwordControllerOne.text,
             );
           } else if (name == 'Login') {
-            lc.loginUser(
+            message = await lc.loginUser(
               ie.emailController.text,
               ip.passwordControllerOne.text,
             );
+            if (message!.isNotEmpty) {
+              Get.showSnackbar(
+                GetSnackBar(
+                  titleText: Text("Login",
+                      style: Theme.of(context).textTheme.labelLarge),
+                  messageText: Text(message!,
+                      style: Theme.of(context).textTheme.bodySmall),
+                  duration: const Duration(seconds: 3),
+                  snackPosition: SnackPosition.TOP,
+                  backgroundColor: Theme.of(context).colorScheme.background,
+                  boxShadows: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                  margin: const EdgeInsets.all(12.0),
+                ),
+              );
+            }
           } else if (name == 'Salvar') {
-            epc.editProfile();
-          } else if (name == 'Cadastrar Projeto') {
-            String message = await rpc.createProject(
-                nic.nameController.text, dic.descriptionController.text, []);
+            message = await epc.editProfile();
             Get.showSnackbar(
               GetSnackBar(
-                titleText: Text("Criar projeto",
+                titleText: Text("Editar perfil",
                     style: Theme.of(context).textTheme.labelLarge),
-                messageText:
-                    Text(message, style: Theme.of(context).textTheme.bodySmall),
+                messageText: Text(message!,
+                    style: Theme.of(context).textTheme.bodySmall),
                 duration: const Duration(seconds: 3),
                 snackPosition: SnackPosition.TOP,
                 backgroundColor: Theme.of(context).colorScheme.background,
@@ -76,8 +95,52 @@ class Button extends StatelessWidget {
                 margin: const EdgeInsets.all(12.0),
               ),
             );
-          } else if (name == 'Editar Projeto') {
-            epc.editProfile();
+          } else if (name == 'Cadastrar Projeto') {
+            message = await rpc.createProject(
+                nic.nameController.text, dic.descriptionController.text, []);
+            Get.showSnackbar(
+              GetSnackBar(
+                titleText: Text("Criar projeto",
+                    style: Theme.of(context).textTheme.labelLarge),
+                messageText: Text(message!,
+                    style: Theme.of(context).textTheme.bodySmall),
+                duration: const Duration(seconds: 3),
+                snackPosition: SnackPosition.TOP,
+                backgroundColor: Theme.of(context).colorScheme.background,
+                boxShadows: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+                margin: const EdgeInsets.all(12.0),
+              ),
+            );
+          } else if (name == 'Editar projeto') {
+            message = await rpc.updateProject(
+                nic.nameController.text, dic.descriptionController.text, []);
+            Get.showSnackbar(
+              GetSnackBar(
+                titleText: Text("Editar projeto",
+                    style: Theme.of(context).textTheme.labelLarge),
+                messageText: Text(message!,
+                    style: Theme.of(context).textTheme.bodySmall),
+                duration: const Duration(seconds: 3),
+                snackPosition: SnackPosition.TOP,
+                backgroundColor: Theme.of(context).colorScheme.background,
+                boxShadows: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+                margin: const EdgeInsets.all(12.0),
+              ),
+            );
           }
         }
         // Get.toNamed(Routes.principal);

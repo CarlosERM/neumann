@@ -34,7 +34,7 @@ class EditProfileController extends GetxController {
     eic.emailController.text = await box.read('email');
   }
 
-  Future<void> editProfile() async {
+  Future<String> editProfile() async {
     String? token = am.retrieveToken();
 
     final response = await eps.patchUser(
@@ -46,14 +46,9 @@ class EditProfileController extends GetxController {
     if (response != null) {
       am.login(token, response.id, response.person.nome, response.person.email);
       Get.toNamed(Routes.principal);
+      return "Atualização feita com sucesso!";
     } else {
-      // / Mostra um diálogo sobre a resposta de erro.
-      Get.defaultDialog(
-          middleText: 'Erro no update.',
-          textConfirm: 'OK',
-          onConfirm: () {
-            Get.back();
-          });
+      return "Ocorreu um erro durante a atualização.";
     }
   }
 }

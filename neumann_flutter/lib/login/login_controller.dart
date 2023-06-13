@@ -6,7 +6,7 @@ import 'login_service.dart';
 class LoginController extends GetxController {
   late final LoginService _loginService;
   late final AuthenticationManager _authManager;
-  final loading = false.obs;
+  var loading = false.obs;
 
   @override
   void onInit() {
@@ -15,8 +15,9 @@ class LoginController extends GetxController {
     _authManager = Get.put(AuthenticationManager());
   }
 
-  Future<void> loginUser(String email, String senha) async {
+  Future<String?> loginUser(String email, String senha) async {
     loading.value = true;
+    loading.refresh();
     final response = await _loginService.fetchLogin(
       LoginRequestModel(
         email: email,
@@ -32,15 +33,15 @@ class LoginController extends GetxController {
         response.user.nome,
         response.user.email,
       );
+      loading.value = false;
+      loading.refresh();
+
+      return response.msg;
     } else {
-      /// Mostra um diálogo sobre a resposta de erro.
-      Get.defaultDialog(
-          middleText: 'Erro no login.',
-          textConfirm: 'OK',
-          onConfirm: () {
-            Get.back();
-          });
+      loading.value = false;
+      loading.refresh();
+
+      return "Não foi possível entrar em contato com o servidor.";
     }
-    loading.value = false;
   }
 }

@@ -2,6 +2,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect.dart';
 import 'package:get/get_connect/http/src/status/http_status.dart';
+import 'package:neumann_flutter/research_projects/update_project_request_model.dart';
+import 'package:neumann_flutter/research_projects/update_project_response_model.dart';
 
 import 'create_project_request_model.dart';
 import 'create_project_response_model.dart';
@@ -10,7 +12,6 @@ import 'get_research_projects_response.dart';
 class ResearchProjectsService extends GetConnect {
   final String projectsURL =
       "${dotenv.get('URL', fallback: 'API_URL not found')}project/";
-
   Future<List<GetResearchProjectsResponse>> fetchProjects(String? token) async {
     final response = await get(projectsURL, headers: {
       "Authorization": token!,
@@ -36,6 +37,7 @@ class ResearchProjectsService extends GetConnect {
       "Authorization": token!,
     });
     if (response.statusCode == HttpStatus.created) {
+      Get.back();
       return CreateProjectResponseModel.fromJson(response.body);
     } else {
       return CreateProjectResponseModel(
@@ -43,6 +45,19 @@ class ResearchProjectsService extends GetConnect {
     }
   }
 
+  Future<UpdateProjectResponseModel> updateProject(
+      UpdateProjectRequestModel model, token, String id) async {
+    final response = await patch(projectsURL + id, model.toJson(), headers: {
+      "Authorization": token!,
+    });
+    if (response.statusCode == HttpStatus.ok) {
+      Get.back();
+      return UpdateProjectResponseModel.fromJson(response.body);
+    } else {
+      return UpdateProjectResponseModel(
+          msg: "Houve um erro na atualização do projeto.");
+    }
+  }
   // Future<DeleteGetResearchProjectsResponse> deletePubService(token, id) async {
   //   final response = await delete(projectsURL + id, headers: {
   //     "Authorization": token!,

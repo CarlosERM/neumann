@@ -3,12 +3,14 @@ import 'package:get/get.dart';
 import '../../components/form/description_input/description_input_controller.dart';
 import '../../components/form/name_input/name_input_controller.dart';
 import '../get_research_projects_response.dart';
+import '../research_projects_controller.dart';
 
 class ResearchProjectController extends GetxController {
   final NameInputController nic = Get.put(
     NameInputController(),
   );
   DescriptionInputController dic = Get.put(DescriptionInputController());
+  ResearchProjectsController rpc = Get.put(ResearchProjectsController());
 
   dynamic argument = Get.arguments;
   late String id;
@@ -27,5 +29,6 @@ class ResearchProjectController extends GetxController {
   void sendDataToEdit() {
     nic.nameController.text = title;
     dic.descriptionController.text = description;
+    rpc.projectId = id;
   }
 }

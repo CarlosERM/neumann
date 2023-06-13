@@ -47,7 +47,7 @@ class ResearchProjects extends StatelessWidget {
                             const SizedBox(height: 32),
                             Center(
                               child: Text(
-                                "Não existe nenhuma publicação.",
+                                "Não existe nenhum projeto de pesquisa.",
                                 style: Theme.of(context).textTheme.bodyLarge,
                               ),
                             ),
