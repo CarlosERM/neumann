@@ -6,6 +6,7 @@ import '../components/modal/modal.dart';
 class RegistrationResearchProject extends StatelessWidget {
   const RegistrationResearchProject({super.key, required this.name});
   final String name;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

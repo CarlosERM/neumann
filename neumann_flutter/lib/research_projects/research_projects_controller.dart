@@ -1,10 +1,8 @@
 import 'package:get/get.dart';
-import 'package:neumann_flutter/home/update_pub_request_model.dart';
 import 'package:neumann_flutter/research_projects/get_research_projects_response.dart'
     as get_research;
 import 'package:neumann_flutter/research_projects/register_research_project_form/update_project_request_model.dart';
 import 'package:neumann_flutter/research_projects/register_research_project_form/update_project_response_model.dart';
-import 'package:neumann_flutter/util/routes.dart';
 import '../../services/authentication_manager.dart';
 import '../participante_model.dart';
 import 'register_research_project_form/create_project_request_model.dart'
@@ -57,6 +55,10 @@ class ResearchProjectsController extends GetxController with StateMixin {
         token,
         projectId);
     await getAllResearchProjects();
+    if (project.msg == "Projeto atualizado com sucesso!") {
+      Get.back();
+      Get.back();
+    }
     return project.msg;
   }
 }

@@ -36,6 +36,7 @@ class MyCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
+          rc.members = members;
           Get.toNamed(
             Routes.researchProject,
             arguments: [

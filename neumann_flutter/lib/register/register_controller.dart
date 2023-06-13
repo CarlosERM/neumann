@@ -7,6 +7,7 @@ import 'register_service.dart';
 class RegisterController extends GetxController with StateMixin {
   late final RegisterService _registerService;
   late final AuthenticationManager _authManager;
+
   @override
   void onInit() {
     super.onInit();

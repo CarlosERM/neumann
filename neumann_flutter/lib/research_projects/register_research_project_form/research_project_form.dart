@@ -7,7 +7,6 @@ import '../../components/form/name_input/name_input.dart';
 
 class ResearchProjectForm extends StatelessWidget {
   ResearchProjectForm({super.key, required this.name});
-
   final _formKey = GlobalKey<FormState>();
   final String name;
 

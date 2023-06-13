@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neumann_flutter/util/routes.dart';
-import '../../components/form/name_input/name_input_controller.dart';
 import '../../components/modal/modal.dart';
 import 'project_member/project_member.dart';
 import 'research_project_controller.dart';
@@ -85,6 +84,7 @@ class ResearchProject extends StatelessWidget {
                       ),
                       const SizedBox(height: 30.0),
                       ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: rpc.members.length,
                         itemBuilder: (context, index) {

@@ -9,7 +9,7 @@ import 'package:neumann_flutter/edit_profile/edit_profile_response_model.dart';
 
 class EditProfileService extends GetConnect {
   final box = GetStorage();
-  late final String userID;
+  late String userID;
   final String pubUrl =
       "${dotenv.get('URL', fallback: 'API_URL not found')}person/";
 

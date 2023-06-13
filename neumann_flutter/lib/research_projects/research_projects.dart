@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../components/my_app_bar/my_app_bar.dart';
 import '../util/routes.dart';
-import 'get_research_projects_response.dart';
 import 'my_card/my_card.dart';
 import 'research_projects_controller.dart';
 
@@ -34,7 +33,6 @@ class ResearchProjects extends StatelessWidget {
                     itemCount: rpc.projects.length,
                     itemBuilder: (BuildContext context, int index) {
                       var project = rpc.projects[index];
-                      print(project.id);
                       return MyCard(
                         id: project.id,
                         title: project.nome,

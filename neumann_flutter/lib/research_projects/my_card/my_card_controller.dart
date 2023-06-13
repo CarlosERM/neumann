@@ -7,15 +7,25 @@ import '../research_project/research_project_controller.dart';
 import '../research_projects_service.dart';
 import '../register_research_project_form/update_project_request_model.dart';
 import '../register_research_project_form/update_project_response_model.dart';
+import '../../participante_model.dart';
 
 class MyCardController extends GetxController with CacheManager {
   late final ResearchProjectsService projectService;
   final box = GetStorage();
-
+  late List<Participante> members;
+  Rx<bool> canEnter = true.obs;
   @override
   void onInit() {
     projectService = Get.put(ResearchProjectsService());
     super.onInit();
+  }
+
+  void isInside(String id) {
+    for (var i = 0; i < members.length; i++) {
+      if (members[i].id == id) {
+        canEnter.value = false;
+      }
+    }
   }
 
   Future<String> toggleProject(String idProject, String title,
@@ -24,9 +34,7 @@ class MyCardController extends GetxController with CacheManager {
     String id = await box.read('id');
     String name = await box.read('nome');
     Participante newMember = Participante(participante: name, id: id);
-
-    if (!members.contains(newMember)) {
-      print("Não tem lá dentro");
+    if (canEnter.value) {
       members.add(newMember);
     }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../edit_profile/edit_profile_controller.dart';
+import '../../research_projects/my_card/my_card_controller.dart';
 import '../../research_projects/research_project/research_project_controller.dart';
 import '../../research_projects/research_projects_controller.dart';
 import 'description_input/description_input_controller.dart';
@@ -34,7 +35,7 @@ class Button extends StatelessWidget {
   late String? message;
   final PasswordInputController ip = Get.put(PasswordInputController());
   final ResearchProjectsController rpc = Get.put(ResearchProjectsController());
-  final ResearchProjectController rrpc = Get.put(ResearchProjectController());
+  final MyCardController mcc = Get.put(MyCardController());
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -121,7 +122,7 @@ class Button extends StatelessWidget {
             );
           } else if (name == 'Editar projeto') {
             message = await rpc.updateProject(nic.nameController.text,
-                dic.descriptionController.text, rrpc.members);
+                dic.descriptionController.text, mcc.members);
             Get.showSnackbar(
               GetSnackBar(
                 titleText: Text("Editar projeto",
