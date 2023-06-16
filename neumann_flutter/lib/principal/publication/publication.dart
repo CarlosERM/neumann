@@ -61,6 +61,7 @@ class Publication extends StatelessWidget {
             ],
           ),
           subtitle: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 5),
               Text(

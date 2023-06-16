@@ -59,7 +59,7 @@ class MyCard extends StatelessWidget {
               children: <Widget>[
                 ListTile(
                   leading: CircleAvatar(
-                    backgroundColor: Theme.of(context).colorScheme.background,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
                   ),
                   title: Text(
                     title,

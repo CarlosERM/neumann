@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:neumann_flutter/util/routes.dart';
 import '../../components/modal/modal.dart';
+import '../../services/authentication_manager.dart';
 import 'project_member/project_member.dart';
 import 'research_project_controller.dart';
 
 class ResearchProject extends StatelessWidget {
   ResearchProject({super.key});
   ResearchProjectController rpc = Get.put(ResearchProjectController());
+  AuthenticationManager am = Get.put(AuthenticationManager());
 
   @override
   Widget build(BuildContext context) {
@@ -47,20 +49,23 @@ class ResearchProject extends StatelessWidget {
                     ),
                     elevation: 0.0,
                     actions: <Widget>[
-                      IconButton(
-                        onPressed: () {
-                          // Get.dialog(
-                          //   const Modal(
-                          //     title: "Editar",
-                          //     content: "Tem certeza que deseja editar?",
-                          //   ),
-                          // );
-                          rpc.sendDataToEdit();
-                          Get.toNamed(Routes.editResearchProject);
-                        },
-                        icon: Icon(
-                          Icons.edit,
-                          color: Theme.of(context).colorScheme.secondary,
+                      Visibility(
+                        visible: am.isProfessor(),
+                        child: IconButton(
+                          onPressed: () {
+                            // Get.dialog(
+                            //   const Modal(
+                            //     title: "Editar",
+                            //     content: "Tem certeza que deseja editar?",
+                            //   ),
+                            // );
+                            rpc.sendDataToEdit();
+                            Get.toNamed(Routes.editResearchProject);
+                          },
+                          icon: Icon(
+                            Icons.edit,
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
                         ),
                       )
                     ],
