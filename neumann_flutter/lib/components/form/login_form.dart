@@ -41,7 +41,7 @@ class _LoginFormState extends State<LoginForm> {
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     onTap: () {
-                      Get.toNamed(Routes.forgotPasswordOne);
+                      Get.toNamed(Routes.forgotPassword);
                     },
                   ),
                   const SizedBox(height: 30),

@@ -27,12 +27,8 @@ class LoginController extends GetxController {
 
     if (response != null) {
       /// Seta o isLogin para verdadeiro.
-      _authManager.login(
-        response.user.token,
-        response.user.id,
-        response.user.nome,
-        response.user.email,
-      );
+      _authManager.login(response.user.token, response.user.id,
+          response.user.nome, response.user.email, response.user.professor);
       loading.value = false;
       loading.refresh();
 

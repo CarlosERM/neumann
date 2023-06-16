@@ -34,19 +34,27 @@ class EditProfileResponseModel {
 class Person {
   String nome;
   String email;
+  String senha;
+  bool professor;
 
   Person({
     required this.nome,
     required this.email,
+    required this.senha,
+    required this.professor,
   });
 
   factory Person.fromJson(Map<String, dynamic> json) => Person(
         nome: json["nome"],
         email: json["email"],
+        senha: json["senha"],
+        professor: json["professor"],
       );
 
   Map<String, dynamic> toJson() => {
         "nome": nome,
         "email": email,
+        "senha": senha,
+        "professor": professor,
       };
 }

@@ -31,7 +31,8 @@ class Principal extends StatelessWidget {
       ),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
-          elevation: 5,
+          elevation: 10,
+          backgroundColor: Theme.of(context).colorScheme.background,
           currentIndex: nb.selectedIndex.value,
           onTap: nb.selectIndex,
           showSelectedLabels: false,

@@ -39,22 +39,26 @@ class User {
   String id;
   String nome;
   String email;
+  bool professor;
 
   User({
     required this.id,
     required this.nome,
     required this.email,
+    required this.professor,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => User(
         id: json["id"],
         nome: json["nome"],
         email: json["email"],
+        professor: json["professor"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "nome": nome,
         "email": email,
+        "professor": professor,
       };
 }

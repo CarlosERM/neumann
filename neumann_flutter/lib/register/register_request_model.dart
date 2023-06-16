@@ -14,11 +14,13 @@ class RegisterRequestModel {
   String nome;
   String email;
   String senha;
+  bool professor;
 
   RegisterRequestModel({
     required this.nome,
     required this.email,
     required this.senha,
+    required this.professor,
   });
 
   factory RegisterRequestModel.fromJson(Map<String, dynamic> json) =>
@@ -26,11 +28,13 @@ class RegisterRequestModel {
         nome: json["nome"],
         email: json["email"],
         senha: json["senha"],
+        professor: json["professor"],
       );
 
   Map<String, dynamic> toJson() => {
         "nome": nome,
         "email": email,
         "senha": senha,
+        "professor": professor,
       };
 }

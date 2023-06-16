@@ -12,7 +12,6 @@ class RegisterService extends GetConnect {
   Future<RegisterResponseModel?> fetchRegister(
       RegisterRequestModel model) async {
     final response = await post(registerUrl, model.toJson());
-    print(response.statusCode);
     if (response.statusCode == HttpStatus.created) {
       return RegisterResponseModel.fromJson(response.body);
     } else {

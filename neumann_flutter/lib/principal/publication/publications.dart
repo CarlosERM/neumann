@@ -21,6 +21,7 @@ class Publications extends StatelessWidget {
             id: publication.id,
             conteudo: publication.conteudo,
             autor: publication.autor,
+            date: publication.date,
           );
         },
       ),

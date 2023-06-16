@@ -1,11 +1,13 @@
 import 'package:get_storage/get_storage.dart';
 
 mixin CacheManager {
-  Future<bool> saveUserInfo(String? id, String? nome, String? email) async {
+  Future<bool> saveUserInfo(
+      String? id, String? nome, String? email, bool? professor) async {
     final box = GetStorage();
     await box.write('id', id);
     await box.write('nome', nome);
     await box.write('email', email);
+    await box.write('professor', professor);
     return true;
   }
 
@@ -23,6 +25,11 @@ mixin CacheManager {
   Future<void> removeToken() async {
     final box = GetStorage();
     await box.remove(CacheManagerKey.TOKEN.toString());
+  }
+
+  bool retrieveProfessor() {
+    final box = GetStorage();
+    return box.read('professor');
   }
 }
 

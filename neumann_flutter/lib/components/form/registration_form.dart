@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:neumann_flutter/components/form/dropdown_menu/my_dropdown_menu.dart';
 import 'package:neumann_flutter/util/routes.dart';
 import 'name_input/name_input.dart';
 import 'password_input/password_input.dart';
@@ -55,6 +56,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
           PasswordInput(tec: ip.passwordControllerOne),
           const SizedBox(height: 30),
           PasswordInput(tec: ip.passwordControllerSecond),
+          const SizedBox(height: 20),
+          MyDropdownMenu(),
           const SizedBox(height: 40),
           Button(formKey: _formKey, name: "Registrar", route: Routes.principal),
           const SizedBox(height: 100),

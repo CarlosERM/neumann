@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../services/authentication_manager.dart';
 import 'profile_options.dart';
 import 'profile_controller.dart';
 
@@ -7,6 +8,7 @@ import 'profile_controller.dart';
 class Profile extends StatelessWidget {
   Profile({super.key});
   ProfileController pc = Get.put(ProfileController());
+  final AuthenticationManager am = Get.put(AuthenticationManager());
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,8 @@ class Profile extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const CircleAvatar(
+            CircleAvatar(
+              backgroundColor: Theme.of(context).colorScheme.primary,
               radius: 100,
             ),
             const SizedBox(
@@ -38,7 +41,7 @@ class Profile extends StatelessWidget {
               },
             ),
             Text(
-              "professor",
+              am.isProfessor() ? "professor" : "estudante",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(

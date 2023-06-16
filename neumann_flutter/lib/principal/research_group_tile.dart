@@ -30,7 +30,9 @@ class ResearchGroupTile extends StatelessWidget {
             color: Color.fromRGBO(122, 122, 122, 1.000),
           ),
         ),
-        leading: const CircleAvatar(),
+        leading: CircleAvatar(
+          backgroundColor: Theme.of(context).colorScheme.primary,
+        ),
       ),
     );
   }

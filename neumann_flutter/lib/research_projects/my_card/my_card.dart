@@ -17,7 +17,8 @@ class MyCard extends StatelessWidget {
   final String title;
   final String description;
   final List<Participante> members;
-  final MyCardController rc = Get.put(MyCardController());
+
+  final MyCardController mcc = Get.put(MyCardController());
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class MyCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          rc.members = members;
+          mcc.members = members;
           Get.toNamed(
             Routes.researchProject,
             arguments: [
@@ -57,7 +58,9 @@ class MyCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 ListTile(
-                  leading: const CircleAvatar(),
+                  leading: CircleAvatar(
+                    backgroundColor: Theme.of(context).colorScheme.background,
+                  ),
                   title: Text(
                     title,
                     style: Theme.of(context).textTheme.titleLarge,
@@ -77,18 +80,18 @@ class MyCard extends StatelessWidget {
                           ObxValue(
                             (data) => TextButton(
                               style: TextButton.styleFrom(
-                                backgroundColor: data.value
+                                backgroundColor: mcc.canEnter.value
                                     ? const Color.fromRGBO(
-                                        0,
-                                        0,
-                                        0,
-                                        1.000,
-                                      )
-                                    : const Color.fromRGBO(
                                         122,
                                         122,
                                         122,
                                         1,
+                                      )
+                                    : const Color.fromRGBO(
+                                        0,
+                                        0,
+                                        0,
+                                        1.000,
                                       ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16),
@@ -96,9 +99,8 @@ class MyCard extends StatelessWidget {
                                 minimumSize: const Size(100, 30),
                               ),
                               onPressed: () {
-                                data.value = !data.value;
-
-                                rc.toggleProject(
+                                mcc.members = members;
+                                mcc.toggleProject(
                                     id, title, description, members);
                               },
                               child: Text(

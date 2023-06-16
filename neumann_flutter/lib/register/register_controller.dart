@@ -15,14 +15,20 @@ class RegisterController extends GetxController with StateMixin {
     _authManager = Get.put(AuthenticationManager());
   }
 
-  Future<void> registerUser(String nome, String email, String senha) async {
+  Future<void> registerUser(
+      String nome, String email, String senha, bool professor) async {
     // Faz o status de Carregamento.~
-    final response = await _registerService.fetchRegister(
-        RegisterRequestModel(nome: nome, email: email, senha: senha));
+    final response = await _registerService.fetchRegister(RegisterRequestModel(
+        nome: nome, email: email, senha: senha, professor: professor));
     if (response != null) {
       /// Seta o isLogin para verdadeiro.
-      _authManager.login(response.token, response.user.id, response.user.nome,
-          response.user.email);
+      _authManager.login(
+        response.token,
+        response.user.id,
+        response.user.nome,
+        response.user.email,
+        response.user.professor,
+      );
     } else {
       // Mostra um diálogo sobre a resposta de erro.
       Get.dialog(

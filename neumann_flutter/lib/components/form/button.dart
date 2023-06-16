@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:neumann_flutter/components/form/dropdown_menu/my_dropdown_menu_controller.dart';
 import '../../edit_profile/edit_profile_controller.dart';
 import '../../research_projects/my_card/my_card_controller.dart';
 import '../../research_projects/research_project/research_project_controller.dart';
@@ -36,6 +37,8 @@ class Button extends StatelessWidget {
   final PasswordInputController ip = Get.put(PasswordInputController());
   final ResearchProjectsController rpc = Get.put(ResearchProjectsController());
   final MyCardController mcc = Get.put(MyCardController());
+  final MyDropdownMenuController mdmc = Get.put(MyDropdownMenuController());
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -44,10 +47,10 @@ class Button extends StatelessWidget {
         if (formKey.currentState!.validate() && route.isNotEmpty) {
           if (name == 'Registrar') {
             rc.registerUser(
-              nic.nameController.text,
-              ie.emailController.text,
-              ip.passwordControllerOne.text,
-            );
+                nic.nameController.text,
+                ie.emailController.text,
+                ip.passwordControllerOne.text,
+                mdmc.selected.value == "Professor" ? true : false);
           } else if (name == 'Login') {
             message = await lc.loginUser(
               ie.emailController.text,
@@ -143,6 +146,10 @@ class Button extends StatelessWidget {
                 margin: const EdgeInsets.all(12.0),
               ),
             );
+          } else if (name == 'Trocar senha') {
+            Get.toNamed(route);
+          } else if (name == "Mudar a senha") {
+            message = await epc.changePassword();
           }
         }
         // Get.toNamed(Routes.principal);

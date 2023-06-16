@@ -1,9 +1,11 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:neumann_flutter/edit_profile/change_password_request.dart';
 import 'package:neumann_flutter/edit_profile/edit_profile_service.dart';
 import 'package:neumann_flutter/util/routes.dart';
 import '../components/form/email_input/email_input_controller.dart';
 import '../components/form/name_input/name_input_controller.dart';
+import '../components/form/password_input/password_input_controller.dart';
 import '../services/authentication_manager.dart';
 import './edit_profile_request_model.dart';
 
@@ -12,6 +14,7 @@ class EditProfileController extends GetxController {
   late final EmailInputController eic;
   late final EditProfileService eps;
   AuthenticationManager am = AuthenticationManager();
+  final PasswordInputController ip = Get.put(PasswordInputController());
 
   @override
   void onInit() {
@@ -44,9 +47,35 @@ class EditProfileController extends GetxController {
         ),
         token);
     if (response != null) {
-      am.login(token, response.id, response.person.nome, response.person.email);
+      am.login(
+        token,
+        response.id,
+        response.person.nome,
+        response.person.email,
+        response.person.professor,
+      );
       Get.toNamed(Routes.principal);
       return "Atualização feita com sucesso!";
+    } else {
+      return "Ocorreu um erro durante a atualização.";
+    }
+  }
+
+  Future<String> changePassword() async {
+    String? token = am.retrieveToken();
+
+    final response = await eps.passwordUser(
+        ChangePasswordRequest(senha: ip.passwordControllerOne.text), token);
+    if (response != null) {
+      // am.login(
+      //   token,
+      //   response.id,
+      //   response.person.nome,
+      //   response.person.email,
+      //   response.person.professor,
+      // );
+      Get.toNamed(Routes.principal);
+      return "A senha foi mudada com sucesso!";
     } else {
       return "Ocorreu um erro durante a atualização.";
     }

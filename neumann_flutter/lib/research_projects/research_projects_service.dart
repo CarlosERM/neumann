@@ -11,17 +11,21 @@ class ResearchProjectsService extends GetConnect {
   final String projectsURL =
       "${dotenv.get('URL', fallback: 'API_URL not found')}project/";
   Future<List<GetResearchProjectsResponse>> fetchProjects(String? token) async {
-    final response = await get(projectsURL, headers: {
-      "Authorization": token!,
-    });
-
-    if (response.statusCode == HttpStatus.ok) {
-      List<GetResearchProjectsResponse> result = [];
-      (response.body).forEach((element) {
-        result.add(GetResearchProjectsResponse.fromJson(element));
+    try {
+      final response = await get(projectsURL, headers: {
+        "Authorization": token!,
       });
-      return result;
-    } else {
+      if (response.statusCode == HttpStatus.ok) {
+        List<GetResearchProjectsResponse> result = [];
+        (response.body).forEach((element) {
+          result.add(GetResearchProjectsResponse.fromJson(element));
+        });
+        return result;
+      } else {
+        List<GetResearchProjectsResponse> result = [];
+        return result;
+      }
+    } catch (e) {
       List<GetResearchProjectsResponse> result = [];
       return result;
     }

@@ -4,9 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'edit_profile/edit_profile.dart';
-import 'forgot_password/forgot_password_one.dart';
-import 'forgot_password/forgot_password_three.dart';
-import 'forgot_password/forgot_password_two.dart';
+import 'forgot_password/forgot_password.dart';
 import 'registration_research_project/registration_research_project.dart';
 import 'research_projects/research_project/research_project.dart';
 import 'splash_screen/splash_screen.dart';
@@ -19,6 +17,7 @@ import 'util/routes.dart';
 void main() async {
   await dotenv.load(fileName: ".env");
   await GetStorage.init();
+
   runApp(const MyApp());
 }
 
@@ -43,24 +42,8 @@ class MyApp extends StatelessWidget {
           page: () => const Login(),
         ),
         GetPage(
-          name: Routes.forgotPasswordOne,
-          page: () => ForgotPasswordOne(),
-          transition: Transition.fade,
-          transitionDuration: const Duration(
-            milliseconds: 200,
-          ),
-        ),
-        GetPage(
-          name: Routes.forgotPasswordTwo,
-          page: () => ForgotPasswordTwo(),
-          transition: Transition.rightToLeft,
-          transitionDuration: const Duration(
-            milliseconds: 300,
-          ),
-        ),
-        GetPage(
-          name: Routes.forgotPasswordThree,
-          page: () => ForgotPasswordThree(),
+          name: Routes.forgotPassword,
+          page: () => ForgotPassword(),
           transition: Transition.rightToLeft,
           transitionDuration: const Duration(
             milliseconds: 300,

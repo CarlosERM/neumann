@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../components/my_app_bar/my_app_bar.dart';
+import '../services/authentication_manager.dart';
 import '../util/routes.dart';
 import 'my_card/my_card.dart';
 import 'research_projects_controller.dart';
@@ -8,22 +9,27 @@ import 'research_projects_controller.dart';
 class ResearchProjects extends StatelessWidget {
   ResearchProjects({super.key});
   final ResearchProjectsController rpc = Get.put(ResearchProjectsController());
+  final AuthenticationManager am = Get.put(AuthenticationManager());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Get.toNamed(Routes.registrationResearchProject);
-        },
-        child: const Icon(Icons.add),
+      backgroundColor: Theme.of(context).colorScheme.background,
+      floatingActionButton: Visibility(
+        visible: am.isProfessor(),
+        child: FloatingActionButton(
+          onPressed: () {
+            Get.toNamed(Routes.registrationResearchProject);
+          },
+          child: const Icon(Icons.add),
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
           color: Theme.of(context).colorScheme.background,
           child: Column(
             children: [
-              const MyAppBar(),
+              MyAppBar(),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Obx(

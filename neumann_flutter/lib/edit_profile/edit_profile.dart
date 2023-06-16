@@ -88,7 +88,7 @@ class _EditProfileState extends State<EditProfile> {
                       Button(
                         formKey: _formKey,
                         name: "Trocar senha",
-                        route: Routes.forgotPasswordOne,
+                        route: Routes.forgotPassword,
                       ),
                     ],
                   ),

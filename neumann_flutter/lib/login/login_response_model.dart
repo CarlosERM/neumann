@@ -35,12 +35,14 @@ class User {
   String id;
   String nome;
   String email;
+  bool professor;
   String token;
 
   User({
     required this.id,
     required this.nome,
     required this.email,
+    required this.professor,
     required this.token,
   });
 
@@ -48,6 +50,7 @@ class User {
         id: json["id"],
         nome: json["nome"],
         email: json["email"],
+        professor: json["professor"],
         token: json["token"],
       );
 
@@ -55,6 +58,7 @@ class User {
         "id": id,
         "nome": nome,
         "email": email,
+        "professor": professor,
         "token": token,
       };
 }

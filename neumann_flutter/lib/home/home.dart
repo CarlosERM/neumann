@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../components/my_app_bar/my_app_bar.dart';
 import '../components/form/profile_picture/image_controller.dart';
 import '../principal/publication/pub_controller.dart';
+import '../services/authentication_manager.dart';
 import 'message_input.dart';
 import '../principal/publication/publications.dart';
 import '../principal/research_group_tile.dart';
@@ -18,6 +19,7 @@ class Home extends StatelessWidget {
     HomeController(),
   );
   final PubController pc = Get.put(PubController());
+  final AuthenticationManager am = Get.put(AuthenticationManager());
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,10 @@ class Home extends StatelessWidget {
                         "Grupo de Excelência em Dados, Automação e Inteligência Artificial.",
                   ),
                   const SizedBox(height: 30),
-                  MessageInput(),
+                  Visibility(
+                    visible: am.isProfessor(),
+                    child: MessageInput(),
+                  ),
                   Publications(),
                 ],
               ),
